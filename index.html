@@ -3,9 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P3S Store</title>
+    <title>P3S Store | Smart Shopping Starts Here</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,Helvetica,sans-serif;
+        }
+
+        body{
+            background:#f5f7fb;
+        }
+
+        header{
+            background:#0d6efd;
+            color:white;
+            padding:18px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .logo{
+            font-size:30px;
+            font-weight:bold;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin-left:25px;
+            font-weight:bold;
+        }
+
+        .hero{
+            text-align:center;
+            padding:80px 20px;
+            background:linear-gradient(135deg,#0d6efd,#3b82f6);
+            color:white;
+        }
+
+        .hero h1{
+            font-size:48px;
+            margin-bottom:20px;
+        }
+
+        .hero p{
+            font-size:20px;
+        }
+
+        .btn{
+            display:inline-block;
+            margin-top:30px;
+            background:#ffc107;
+            color:#000;
+            padding:15px 35px;
+            border-radius:40px;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        .categories{
+            padding:60px 8%;
+        }
+
+        .categories h2{
+            text-align:center;
+            margin-bottom:40px;
+        }
+
+        .grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+            gap:25px;
+        }
+
+        .card{
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            text-align:center;
+            box-shadow:0 10px 25px rgba(0,0,0,.08);
+        }
+
+        .card h3{
+            margin-top:15px;
+        }
+
+        footer{
+            background:#111827;
+            color:white;
+            text-align:center;
+            padding:30px;
+            margin-top:50px;
+        }
+    </style>
+
 </head>
+
 <body>
-    <h1>Welcome to P3S Store 🚀</h1>
+
+<header>
+
+<div class="logo">
+P3S Store
+</div>
+
+<nav>
+
+<a href="#">Home</a>
+
+<a href="#">Mobiles</a>
+
+<a href="#">Electronics</a>
+
+<a href="#">Deals</a>
+
+<a href="#">Contact</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Smart Shopping Starts Here</h1>
+
+<p>Best Amazon Deals • Trusted Reviews • Daily Updates</p>
+
+<a href="#" class="btn">Explore Deals</a>
+
+</section>
+
+<section class="categories">
+
+<h2>Shop by Category</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>📱 Mobiles</h3>
+</div>
+
+<div class="card">
+<h3>🎧 Accessories</h3>
+</div>
+
+<div class="card">
+<h3>🏠 Home & Kitchen</h3>
+</div>
+
+<div class="card">
+<h3>💻 Electronics</h3>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 P3S Store | Amazon Affiliate Website</p>
+
+<p>As an Amazon Associate, I earn from qualifying purchases.</p>
+
+</footer>
+
 </body>
+
 </html>
