@@ -681,3 +681,16 @@ nav a:hover{
     height:auto;
     display:block;
 }
+.logo img{
+    width:200px;
+    max-width:100%;
+    height:auto;
+    display:block;
+}
+
+@media(max-width:768px){
+    .logo img{
+        width:160px;
+        margin:auto;
+    }
+}
