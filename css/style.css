@@ -29,9 +29,10 @@ z-index:1000;
 box-shadow:0 4px 10px rgba(0,0,0,.15);
 }
 
-.logo{
-font-size:32px;
-font-weight:bold;
+.logo img{
+    height:60px;
+    width:auto;
+    display:block;
 }
 
 .search-box{
