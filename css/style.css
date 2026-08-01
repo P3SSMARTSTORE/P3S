@@ -651,3 +651,26 @@ nav a:hover{
         width:100%;
     }
 }
+/* Premium Search Animation */
+
+.search-box{
+    transition:0.4s;
+}
+
+.search-box:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 30px rgba(0,102,255,.25);
+}
+
+.search-box input{
+    font-weight:500;
+    letter-spacing:.3px;
+}
+
+.search-box button{
+    transition:.3s;
+}
+
+.search-box button:hover{
+    transform:scale(1.08);
+}
