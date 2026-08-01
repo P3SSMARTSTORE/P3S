@@ -75,20 +75,40 @@ color:#ffcc00;
 }
 
 .hero{
-background:linear-gradient(135deg,#0066ff,#4b8dff);
-color:white;
+background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url("../images/banners/banner1.jpg");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+color:#fff;
 text-align:center;
-padding:90px 20px;
+padding:120px 20px;
+min-height:500px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.hero-content{
+max-width:800px;
 }
 
 .hero h1{
-font-size:56px;
+font-size:60px;
 margin-bottom:20px;
+font-weight:bold;
 }
 
 .hero p{
 font-size:24px;
 margin-bottom:35px;
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
 }
 
 .btn{
