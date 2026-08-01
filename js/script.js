@@ -1,32 +1,24 @@
-// P3S Store JavaScript
-// ===== Product Search =====
+document.addEventListener("DOMContentLoaded", function () {
 
-const searchInput = document.getElementById("searchInput");
+    const searchInput = document.getElementById("searchInput");
+    const searchButton = document.getElementById("searchButton");
+    const productCards = document.querySelectorAll(".product-card");
 
-if(searchInput){
+    function searchProducts() {
+        const searchValue = searchInput.value.trim().toLowerCase();
 
-searchInput.addEventListener("keyup",function(){
+        productCards.forEach(function (card) {
+            const productText = card.textContent.toLowerCase();
 
-let value=this.value.toLowerCase();
+            if (productText.includes(searchValue)) {
+                card.style.display = "";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    }
 
-let products=document.querySelectorAll(".product-card");
-
-products.forEach(function(card){
-
-let text=card.innerText.toLowerCase();
-
-if(text.includes(value)){
-
-card.style.display="block";
-
-}else{
-
-card.style.display="none";
-
-}
+    searchInput.addEventListener("input", searchProducts);
+    searchButton.addEventListener("click", searchProducts);
 
 });
-
-});
-
-}
