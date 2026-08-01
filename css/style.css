@@ -675,3 +675,9 @@ nav a:hover{
 .search-box button:hover{
     transform:scale(1.08);
 }
+.logo img{
+    width:220px;
+    max-width:100%;
+    height:auto;
+    display:block;
+}
