@@ -905,3 +905,19 @@ nav a{
     margin-top: 20px;
     border-radius: 8px;
 }
+.clear-search-btn{
+    display:inline-block;
+    width:auto !important;
+    padding:12px 30px;
+    margin-top:20px;
+    background:#ff9900;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.clear-search-btn:hover{
+    background:#e68600;
+}
