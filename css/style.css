@@ -866,3 +866,18 @@ nav a{
     max-width: 320px;
     margin: 0 auto;
 }
+.view-btn{
+    display:inline-block;
+    padding:12px 30px;
+    background:#ff9800;
+    color:#fff;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.view-btn:hover{
+    background:#ff7a00;
+    transform:translateY(-2px);
+}
