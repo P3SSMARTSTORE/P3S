@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.getElementById("searchInput");
     const searchButton = document.getElementById("searchButton");
     const productCards = document.querySelectorAll(".product-card");
+const hero = document.querySelector(".hero");
+const categories = document.querySelector(".categories");
+const featured = document.getElementById("products");
 
     if (!searchInput || !searchButton) {
         console.error("Search input or button not found.");
