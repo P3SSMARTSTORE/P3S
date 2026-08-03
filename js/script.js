@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const hero = document.querySelector(".hero");
     const categories = document.querySelector(".categories");
     const featured = document.getElementById("products");
+    const deals = document.getElementById("deals");
+const bestSellers = document.getElementById("best-sellers");
     const noResults = document.getElementById("noResults");
 
     if (!searchInput || !searchButton || !noResults) {
