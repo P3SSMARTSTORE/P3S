@@ -9,6 +9,19 @@ const featured = document.getElementById("products");
 const deals = document.getElementById("deals");
 const bestSellers = document.getElementById("best-sellers");
 const noResults = document.getElementById("noResults");
+   const clearSearch = document.getElementById("clearSearch");
+
+    <h2>❌ No Products Found</h2>
+
+    <p>Try searching for:</p>
+
+    <p><b>Realme, Mirror, Belt, boAt</b></p>
+
+    <button id="clearSearch" class="buy-btn">
+        Clear Search
+    </button>
+
+</div>
 
     if (!searchInput || !searchButton || !noResults) {
         console.error("Required search elements not found.");
