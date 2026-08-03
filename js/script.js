@@ -13,8 +13,11 @@ document.addEventListener("DOMContentLoaded", function () {
         productCards.forEach(function (card) {
             const productText = card.textContent.toLowerCase();
 
-            card.style.display =
-                productText.includes(searchText) ? "" : "none";
+            if (productText.includes(searchText)) {
+    card.style.display = "block";
+} else {
+    card.style.display = "none";
+}
         });
     });
 });
