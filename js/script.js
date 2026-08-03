@@ -4,11 +4,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const productCards = document.querySelectorAll(".product-card");
 
     const hero = document.querySelector(".hero");
-    const categories = document.querySelector(".categories");
-    const featured = document.getElementById("products");
-    const deals = document.getElementById("deals");
+const categories = document.querySelector(".categories");
+const featured = document.getElementById("products");
+const deals = document.getElementById("deals");
 const bestSellers = document.getElementById("best-sellers");
-    const noResults = document.getElementById("noResults");
+const noResults = document.getElementById("noResults");
 
     if (!searchInput || !searchButton || !noResults) {
         console.error("Required search elements not found.");
@@ -30,18 +30,26 @@ const bestSellers = document.getElementById("best-sellers");
             }
         });
 
-        if (searchText === "") {
-            if (hero) hero.style.display = "";
-            if (categories) categories.style.display = "";
-            if (featured) featured.style.display = "";
-            noResults.style.display = "none";
-        } else {
-            if (hero) hero.style.display = "none";
-            if (categories) categories.style.display = "none";
-            if (featured) featured.style.display = "";
+       if (searchText === "") {
 
-            noResults.style.display = found ? "none" : "block";
-        }
+    if (hero) hero.style.display = "";
+    if (categories) categories.style.display = "";
+    if (featured) featured.style.display = "";
+    if (deals) deals.style.display = "";
+    if (bestSellers) bestSellers.style.display = "";
+
+    noResults.style.display = "none";
+
+} else {
+
+    if (hero) hero.style.display = "none";
+    if (categories) categories.style.display = "none";
+    if (featured) featured.style.display = found ? "" : "none";
+    if (deals) deals.style.display = found ? "" : "none";
+    if (bestSellers) bestSellers.style.display = found ? "" : "none";
+
+    noResults.style.display = found ? "none" : "block";
+}
     }
 
     searchInput.addEventListener("input", filterProducts);
