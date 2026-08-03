@@ -44,6 +44,22 @@ if (found) {
     searchInput.addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
             filterProducts();
+            if (searchText === "") {
+    hero.style.display = "";
+    categories.style.display = "";
+    featured.style.display = "";
+    noResults.style.display = "none";
+} else {
+    hero.style.display = "none";
+    categories.style.display = "none";
+    featured.style.display = "";
+
+    if (found) {
+        noResults.style.display = "none";
+    } else {
+        noResults.style.display = "block";
+    }
+}
         }
     });
 });
