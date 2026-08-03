@@ -1,23 +1,37 @@
 document.addEventListener("DOMContentLoaded", function () {
+
     const searchInput = document.getElementById("searchInput");
+    const searchButton = document.getElementById("searchButton");
     const productCards = document.querySelectorAll(".product-card");
 
-    if (!searchInput) {
-        console.error("Search input not found");
-        return;
-    }
+    function filterProducts() {
 
-    searchInput.addEventListener("input", function () {
-        const searchText = this.value.trim().toLowerCase();
+        const searchText = searchInput.value.trim().toLowerCase();
 
         productCards.forEach(function (card) {
+
             const productText = card.textContent.toLowerCase();
 
             if (productText.includes(searchText)) {
-    card.style.display = "block";
-} else {
-    card.style.display = "none";
-}
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+
         });
+    }
+
+    // Search while typing
+    searchInput.addEventListener("input", filterProducts);
+
+    // Search when button is clicked
+    searchButton.addEventListener("click", filterProducts);
+
+    // Search when Enter key is pressed
+    searchInput.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+            filterProducts();
+        }
     });
+
 });
