@@ -11,13 +11,28 @@ document.addEventListener("DOMContentLoaded", function () {
     function filterProducts() {
         const searchText = searchInput.value.trim().toLowerCase();
 
-        productCards.forEach(function (card) {
-            const productText = card.textContent.toLowerCase();
+        let found = false;
 
-            card.style.display = productText.includes(searchText)
-                ? ""
-                : "none";
-        });
+productCards.forEach(function (card) {
+
+    const productText = card.textContent.toLowerCase();
+
+    if (productText.includes(searchText)) {
+        card.style.display = "";
+        found = true;
+    } else {
+        card.style.display = "none";
+    }
+
+});
+
+const noResults = document.getElementById("noResults");
+
+if (found) {
+    noResults.style.display = "none";
+} else {
+    noResults.style.display = "block";
+}
     }
 
     searchInput.addEventListener("input", filterProducts);
