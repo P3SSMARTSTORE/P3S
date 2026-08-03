@@ -749,3 +749,40 @@ nav a:hover{
     color:#e53935;
     font-weight:bold;
 }
+/* Hero Banner */
+
+.hero{
+    height:420px;
+    background:linear-gradient(135deg,#0f62fe,#00bcd4);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+}
+
+.hero-content h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.hero-content p{
+    font-size:22px;
+    margin-bottom:25px;
+}
+
+.shop-btn{
+    display:inline-block;
+    background:#ff9900;
+    color:white;
+    padding:14px 28px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.shop-btn:hover{
+    background:#e68900;
+    transform:scale(1.05);
+}
