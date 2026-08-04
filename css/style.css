@@ -1010,3 +1010,52 @@ nav a{
     font-size:22px;
     margin-bottom:25px;
 }
+/* ===== FINAL HERO SLIDER FIX ===== */
+
+.hero{
+    position:relative !important;
+    width:100% !important;
+    height:auto !important;
+    aspect-ratio:1920 / 600;
+    overflow:hidden !important;
+    background:#071f56 !important;
+    display:block !important;
+}
+
+.slider{
+    position:absolute !important;
+    inset:0 !important;
+    width:100% !important;
+    height:100% !important;
+}
+
+.slide{
+    position:absolute !important;
+    inset:0 !important;
+    width:100% !important;
+    height:100% !important;
+    object-fit:contain !important;
+    object-position:center !important;
+    opacity:0;
+    transition:opacity .8s ease;
+}
+
+.slide.active{
+    opacity:1;
+}
+
+.hero-content{
+    display:none !important;
+}
+
+@media(max-width:768px){
+    .hero{
+        aspect-ratio:1920 / 600;
+        height:auto !important;
+        min-height:0 !important;
+    }
+
+    .slide{
+        object-fit:contain !important;
+    }
+}
