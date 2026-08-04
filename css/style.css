@@ -232,8 +232,9 @@ nav a:hover{
 }
 
 .card h3{
-    margin-top:12px;
-    font-size:20px;
+    margin-top:18px;
+    font-size:24px;
+    font-weight:700;
 }
 .card i{
     font-size:60px;
