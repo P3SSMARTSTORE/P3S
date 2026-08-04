@@ -153,8 +153,7 @@ nav a:hover{
 .hero{
     position:relative;
     width:100%;
-    aspect-ratio:1920 / 600;
-    min-height:220px;
+    aspect-ratio:1920/600;
     overflow:hidden;
     background:#071f56;
 }
