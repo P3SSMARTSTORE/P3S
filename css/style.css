@@ -226,9 +226,14 @@ nav a:hover{
 }
 
 .card:hover{
-    transform:translateY(-10px) scale(1.03);
-    box-shadow:0 18px 40px rgba(0,0,0,.18);
+    transform:translateY(-10px) scale(1.04);
+    box-shadow:0 18px 40px rgba(13,110,253,.20);
     border:2px solid #0d6efd;
+}
+
+.card:hover i{
+    color:#ff9900;
+    transform:scale(1.2) rotate(8deg);
 }
 
 .card h3{
