@@ -669,10 +669,26 @@ nav a:hover{
     transform:scale(1.05);
 }
 
-@media(max-width:900px){
+@media (max-width:900px){
+
     .search-box{
         width:100%;
+        max-width:350px;
+        margin:10px auto;
     }
+
+    .hero{
+        height:220px;
+    }
+
+    .slide{
+        object-fit:contain;
+    }
+
+    .hero-content{
+        display:none;
+    }
+
 }
 /* Premium Search Animation */
 
