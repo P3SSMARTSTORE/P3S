@@ -41,13 +41,13 @@ header{
     justify-content:space-between;
     gap:22px;
     flex-wrap:wrap;
-    padding:14px 5%;
+    padding:12px 5%;
     background:#fff;
     box-shadow:0 3px 14px rgba(0,0,0,.1);
 }
 
 .logo img{
-    width:190px;
+   width:170px;
     height:auto;
 }
 
