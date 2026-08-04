@@ -1059,3 +1059,10 @@ nav a{
         object-fit:contain !important;
     }
 }
+.hero{
+    margin-top:0;
+}
+
+.slide{
+    object-position:center center !important;
+}
