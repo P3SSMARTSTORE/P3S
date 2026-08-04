@@ -216,7 +216,13 @@ nav a:hover{
 }
 
 .card{
+    background:#fff;
+    border-radius:16px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
     transition:all .35s ease;
+    cursor:pointer;
 }
 
 .card:hover{
