@@ -236,12 +236,11 @@ nav a:hover{
     font-size:20px;
 }
 .card i{
-    font-size:48px;
+    font-size:60px;
     color:#0d6efd;
-    margin-bottom:18px;
+    margin-bottom:20px;
     transition:.35s ease;
 }
-
 .card:hover i{
     color:#ff9900;
     transform:scale(1.2) rotate(8deg);
