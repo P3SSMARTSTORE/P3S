@@ -235,7 +235,17 @@ nav a:hover{
     margin-top:12px;
     font-size:20px;
 }
+.card i{
+    font-size:48px;
+    color:#0d6efd;
+    margin-bottom:18px;
+    transition:.35s ease;
+}
 
+.card:hover i{
+    color:#ff9900;
+    transform:scale(1.2) rotate(8deg);
+}
 /* =========================
    PRODUCTS
 ========================= */
