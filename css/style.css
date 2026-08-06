@@ -650,3 +650,8 @@ footer p{
         bottom:10px;
     }
 }
+.wishlist.active{
+    background:#ffe3e8;
+    color:#e53935;
+    transform:scale(1.08);
+}
