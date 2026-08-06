@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>P3S Smart Store | Smart Shopping Starts Here</title>
 
     <link rel="stylesheet" href="css/style.css?v=12">
 
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
 </head>
+
 <body>
 
 <header>
 
-    
+    <div class="logo">
+        <img src="images/logo.png" alt="P3S Smart Store Logo">
+    </div>
 
-<div class="logo">
-    <img src="images/logo.png" alt="P3S Smart Store Logo">
-</div>
+    <div class="search-box">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search mobiles, electronics, accessories...">
 
-<div class="search-box">
-    <input
-    type="text"
-    id="searchInput"
-    placeholder="Search mobiles, electronics, accessories...">
+        <button type="button" id="searchButton" aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+    </div>
 
-    <button type="button" id="searchButton" aria-label="Search">
-    <i class="fa-solid fa-magnifying-glass"></i>
-</button>
-</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Mobiles</a>
+        <a href="#">Electronics</a>
+        <a href="#">Accessories</a>
+        <a href="#deals">Deals</a>
+        <a href="#">Contact</a>
+    </nav>
 
-<nav>
-    <a href="#">Home</a>
-    <a href="#">Mobiles</a>
-    <a href="#">Electronics</a>
-    <a href="#">Accessories</a>
-    <a href="#">Deals</a>
-    <a href="#">Contact</a>
-</nav>
+    <div class="header-icons">
 
-<div class="header-icons">
- <a href="#wishlist-products" id="wishlistLink">
-    ❤️ Wishlist (<span id="wishlistCount">0</span>)
-</a>
-    <a href="#">🛒 Cart</a>
-    <a href="#">👤 Account</a>
-</div>
+        <a href="#wishlist-products" id="wishlistLink">
+            ❤️ Wishlist (<span id="wishlistCount">0</span>)
+        </a>
+
+        <a href="#">🛒 Cart</a>
+        <a href="#">👤 Account</a>
+
+    </div>
 
 </header>
 
@@ -68,12 +71,21 @@
 
         <img src="images/banners/banner3.jpg"
              class="slide"
-             alt="Home & Kitchen Sale">
+             alt="Home and Kitchen Sale">
 
     </div>
 
-    <button class="slider-btn prev">&#10094;</button>
-    <button class="slider-btn next">&#10095;</button>
+    <button type="button"
+            class="slider-btn prev"
+            aria-label="Previous banner">
+        &#10094;
+    </button>
+
+    <button type="button"
+            class="slider-btn next"
+            aria-label="Next banner">
+        &#10095;
+    </button>
 
     <div class="slider-dots">
         <span class="dot active"></span>
@@ -82,6 +94,8 @@
     </div>
 
 </section>
+
+
 <!-- Categories -->
 
 <section class="categories">
@@ -114,168 +128,211 @@
 
 </section>
 
-<!-- Products -->
-<div id="noResults" style="display:none; text-align:center; padding:30px;">
+
+<!-- No Search Results -->
+
+<div id="noResults"
+     style="display:none; text-align:center; padding:30px;">
 
     <h2>❌ No Products Found</h2>
 
     <p>Try searching for:</p>
 
-    <p><b>Realme, Mirror, Belt, boAt</b></p>
+    <p>
+        <strong>Realme, Mirror, Belt, boAt</strong>
+    </p>
 
-    <button id="clearSearch" class="buy-btn">
+    <button type="button"
+            id="clearSearch"
+            class="clear-search-btn">
         Clear Search
     </button>
 
 </div>
-<section class="products" id="products">
-<section class="products" id="wishlist-products" style="display:none;">
+
+
+<!-- Wishlist Products -->
+
+<section class="products"
+         id="wishlist-products"
+         style="display:none;">
 
     <h2>❤️ My Wishlist</h2>
 
     <div class="product-grid" id="wishlistContainer">
-
     </div>
 
 </section>
+
+
+<!-- Featured Products -->
+
+<section class="products" id="products">
+
     <h2>🔥 Featured Products</h2>
 
     <div class="product-grid">
 
+        <!-- Realme P4 Pro -->
+
         <div class="product-card">
 
-    <span class="badge">20% OFF</span>
+            <span class="badge">20% OFF</span>
 
-    <div class="wishlist">❤️</div>
+            <div class="wishlist">❤️</div>
 
-  <img src="images/products/realme-p4pro.jpg" alt="Realme P4 Pro">
+            <img src="images/products/realme-p4pro.jpg"
+                 alt="Realme P4 Pro">
 
-    <div class="product-info">
+            <div class="product-info">
 
-        <h3 class="product-title">Realme P4 Pro 5G (8GB + 256GB)</h3>
+                <h3 class="product-title">
+                    Realme P4 Pro 5G (8GB + 256GB)
+                </h3>
 
-        <div class="rating">⭐⭐⭐⭐⭐ (4.7)</div>
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ (4.7)
+                </div>
 
-        <p class="price">
-            ₹24,999
-            <span class="old-price">₹31,999</span>
-        </p>
+                <p class="price">
+                    ₹24,999
+                    <span class="old-price">₹31,999</span>
+                </p>
 
-        <p class="discount">Save ₹7,000</p>
+                <p class="discount">
+                    Save ₹7,000
+                </p>
 
-        <a href="https://link.amazon/B0cEOKWhq" target="_blank" class="buy-btn">
-            Buy on Amazon
-        </a>
+                <a href="https://link.amazon/B0cEOKWhq"
+                   target="_blank"
+                   rel="nofollow sponsored noopener"
+                   class="buy-btn">
+                    Buy on Amazon
+                </a>
 
-    </div>
+            </div>
 
-</div>
-
-       <div class="product-card">
-
-    <span class="badge">New</span>
-
-    <div class="wishlist">❤️</div>
-
-    <img src="images/products/iqoo-z11x.jpg" alt="iQOO Z11x 5G">
-
-    <div class="product-info">
-
-        <h3 class="product-title">
-            iQOO Z11x 5G (8GB + 128GB)
-        </h3>
-
-        <div class="rating">
-            ⭐⭐⭐⭐⭐ (4.6)
         </div>
 
-        <p class="price">
-            ₹18,999
-        </p>
 
-        <a href="https://amzn.to/4wzdoy6"
-   target="_blank"
-   rel="nofollow sponsored noopener"
-   class="buy-btn">
-    Buy on Amazon
-</a>
+        <!-- iQOO Z11x -->
 
-    </div>
+        <div class="product-card">
 
-</div>
+            <span class="badge">New</span>
 
-       <div class="product-card">
+            <div class="wishlist">❤️</div>
 
-    <span class="badge">Best Seller</span>
+            <img src="images/products/iqoo-z11x.jpg"
+                 alt="iQOO Z11x 5G">
 
-    <div class="wishlist">❤️</div>
+            <div class="product-info">
 
-    <img src="images/products/wall-clock.jpg" alt="Premium Wall Clock">
+                <h3 class="product-title">
+                    iQOO Z11x 5G (8GB + 128GB)
+                </h3>
 
-    <div class="product-info">
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ (4.6)
+                </div>
 
-        <h3 class="product-title">
-            Daniel Hechter Paris Wall Clock
-        </h3>
+                <p class="price">
+                    ₹18,999
+                </p>
 
-        <div class="rating">
-            ⭐⭐⭐⭐⭐ (4.5)
+                <a href="https://amzn.to/4wzdoy6"
+                   target="_blank"
+                   rel="nofollow sponsored noopener"
+                   class="buy-btn">
+                    Buy on Amazon
+                </a>
+
+            </div>
+
         </div>
 
-        <p class="price">
-            ₹1,199
-        </p>
 
-       <a href="https://amzn.to/4bs8IBQ"
-   target="_blank"
-   rel="nofollow sponsored noopener"
-   class="buy-btn">
-    Buy on Amazon
-</a>
+        <!-- Wall Clock -->
 
-    </div>
+        <div class="product-card">
 
-</div>
+            <span class="badge">Best Seller</span>
 
-       <div class="product-card">
+            <div class="wishlist">❤️</div>
 
-    <span class="badge">Hot Deal</span>
+            <img src="images/products/wall-clock.jpg"
+                 alt="Daniel Hechter Paris Wall Clock">
 
-    <div class="wishlist">❤️</div>
+            <div class="product-info">
 
-    <img src="images/products/boat-earbuds.jpg" alt="boAt Airdopes Joy">
+                <h3 class="product-title">
+                    Daniel Hechter Paris Wall Clock
+                </h3>
 
-    <div class="product-info">
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ (4.5)
+                </div>
 
-        <h3 class="product-title">
-            boAt Airdopes Joy Wireless Earbuds
-        </h3>
+                <p class="price">
+                    ₹1,199
+                </p>
 
-        <div class="rating">
-            ⭐⭐⭐⭐☆ (4.0)
+                <a href="https://amzn.to/4bs8IBQ"
+                   target="_blank"
+                   rel="nofollow sponsored noopener"
+                   class="buy-btn">
+                    Buy on Amazon
+                </a>
+
+            </div>
+
         </div>
 
-      <p class="price">
-    ₹1,499
-    <span class="old-price">₹2,999</span>
-</p>
 
-<p class="discount">
-    Save ₹1,500
-</p>
+        <!-- boAt Earbuds -->
 
-        <a href="https://amzn.to/4yR7PwF"
-           target="_blank"
-           rel="nofollow sponsored noopener"
-           class="buy-btn">
-            Buy on Amazon
-        </a>
+        <div class="product-card">
+
+            <span class="badge">Hot Deal</span>
+
+            <div class="wishlist">❤️</div>
+
+            <img src="images/products/boat-earbuds.jpg"
+                 alt="boAt Airdopes Joy Wireless Earbuds">
+
+            <div class="product-info">
+
+                <h3 class="product-title">
+                    boAt Airdopes Joy Wireless Earbuds
+                </h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐☆ (4.0)
+                </div>
+
+                <p class="price">
+                    ₹1,499
+                    <span class="old-price">₹2,999</span>
+                </p>
+
+                <p class="discount">
+                    Save ₹1,500
+                </p>
+
+                <a href="https://amzn.to/4yR7PwF"
+                   target="_blank"
+                   rel="nofollow sponsored noopener"
+                   class="buy-btn">
+                    Buy on Amazon
+                </a>
+
+            </div>
+
+        </div>
 
     </div>
-</div>
-</div>
+
 </section>
-
 
 
 <!-- Today's Deals -->
@@ -285,6 +342,8 @@
     <h2>🔥 Today's Deals</h2>
 
     <div class="product-grid">
+
+        <!-- ZORO Belt -->
 
         <div class="product-card">
 
@@ -324,48 +383,62 @@
             </div>
 
         </div>
-<!-- Second Product Here -->
+
+
+        <!-- Wall Mirror -->
+
         <div class="product-card">
-   <span class="badge">Best Deal</span>
 
-    <div class="wishlist">❤️</div>
+            <span class="badge">Best Deal</span>
 
-    <img src="images/products/amazon-product-2.jpg" alt="Amazon Product">
+            <div class="wishlist">❤️</div>
 
-    <div class="product-info">
+            <img src="images/products/amazon-product-2.jpg"
+                 alt="Amazon Basics Wood Wall Mirror">
 
-       <h3 class="product-title">
-Amazon Basics Wood Wall Mirror
-</h3>
+            <div class="product-info">
 
-       <div class="rating">⭐⭐⭐⭐☆ (4.1)</div>
+                <h3 class="product-title">
+                    Amazon Basics Wood Wall Mirror
+                </h3>
 
-       <p class="price">
-₹929
-<span class="old-price">₹1,899</span>
-</p>
+                <div class="rating">
+                    ⭐⭐⭐⭐☆ (4.1)
+                </div>
 
-<p class="discount">
-Save ₹970
-</p>
+                <p class="price">
+                    ₹929
+                    <span class="old-price">₹1,899</span>
+                </p>
 
-        <a href="https://link.amazon/B00LqLkcj"
-           target="_blank"
-           rel="nofollow sponsored noopener"
-           class="buy-btn">
-            Buy on Amazon
+                <p class="discount">
+                    Save ₹970
+                </p>
+
+                <a href="https://link.amazon/B00LqLkcj"
+                   target="_blank"
+                   rel="nofollow sponsored noopener"
+                   class="buy-btn">
+                    Buy on Amazon
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="view-all-deals">
+
+        <a href="#best-sellers" class="buy-btn">
+            View Best Sellers →
         </a>
 
     </div>
 
-</div>
-       </div>
-
-   <div class="view-all-deals">
-    <a href="#best-sellers" class="buy-btn">View Best Sellers →</a>
-</div>
-
 </section>
+
+
 <!-- Best Sellers -->
 
 <section class="products" id="best-sellers">
@@ -381,7 +454,7 @@ Save ₹970
             <div class="wishlist">❤️</div>
 
             <img src="images/products/boat-earbuds.jpg"
-                 alt="boAt Airdopes Joy">
+                 alt="boAt Airdopes Joy Wireless Earbuds">
 
             <div class="product-info">
 
@@ -416,13 +489,19 @@ Save ₹970
     </div>
 
 </section>
+
+
 <!-- Footer -->
 
 <footer>
 
-    <p>© 2026 P3S Smart Store. All Rights Reserved.</p>
+    <p>
+        © 2026 P3S Smart Store. All Rights Reserved.
+    </p>
 
-    <p>As an Amazon Associate, I earn from qualifying purchases.</p>
+    <p>
+        As an Amazon Associate, I earn from qualifying purchases.
+    </p>
 
 </footer>
 
