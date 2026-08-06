@@ -122,5 +122,46 @@ if (slides.length > 0) {
     showSlide(0);
     startSlider();
 }
+
+/* ==========================
+   WISHLIST COUNTER
+========================== */
+
+const wishlistCount = document.getElementById("wishlistCount");
+const wishlistButtons = document.querySelectorAll(".wishlist");
+
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+if (wishlistCount) {
+    wishlistCount.textContent = wishlist.length;
+}
+
+wishlistButtons.forEach(function (button, index) {
+
+    if (wishlist.includes(index)) {
+        button.classList.add("active");
+    }
+
+    button.addEventListener("click", function () {
+
+        if (wishlist.includes(index)) {
+            wishlist = wishlist.filter(function (item) {
+                return item !== index;
+            });
+
+            button.classList.remove("active");
+        } else {
+            wishlist.push(index);
+            button.classList.add("active");
+        }
+
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+        if (wishlistCount) {
+            wishlistCount.textContent = wishlist.length;
+        }
+    });
+});
+
 });
 
