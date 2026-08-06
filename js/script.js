@@ -212,16 +212,13 @@ if (wishlistLink && wishlistSection && wishlistContainer) {
         });
     });
 }
-    /* ==========================
+   /* ==========================
    CART COUNTER
 ========================== */
 
 const cartCount = document.getElementById("cartCount");
-const addCartButtons = document.querySelectorAll(".add-cart-btn");
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-updateCartCount();
 
 function updateCartCount() {
     if (cartCount) {
@@ -229,29 +226,39 @@ function updateCartCount() {
     }
 }
 
-addCartButtons.forEach(function(button) {
+updateCartCount();
 
-    button.addEventListener("click", function() {
+document.addEventListener("click", function (event) {
 
-        const productCard = button.closest(".product-card");
+    const button = event.target.closest(".add-cart-btn");
 
-        const product = {
-            id: productCard.dataset.productId,
-            name: productCard.dataset.name,
-            price: productCard.dataset.price,
-            image: productCard.dataset.image,
-            link: productCard.dataset.link
-        };
+    if (!button) {
+        return;
+    }
 
-        cart.push(product);
+    const productCard = button.closest(".product-card");
 
-        localStorage.setItem("cart", JSON.stringify(cart));
+    if (!productCard) {
+        return;
+    }
 
-        updateCartCount();
+    const product = {
+        id: productCard.dataset.productId,
+        name: productCard.dataset.name,
+        price: productCard.dataset.price,
+        image: productCard.dataset.image,
+        link: productCard.dataset.link
+    };
 
-        alert(product.name + " added to Cart!");
-    });
+    cart.push(product);
 
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    updateCartCount();
+
+    button.textContent = "✅ Added to Cart";
+
+    setTimeout(function () {
+        button.textContent = "🛒 Add to Cart";
+    }, 1500);
 });
-});
-
