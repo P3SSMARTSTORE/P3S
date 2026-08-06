@@ -212,5 +212,46 @@ if (wishlistLink && wishlistSection && wishlistContainer) {
         });
     });
 }
+    /* ==========================
+   CART COUNTER
+========================== */
+
+const cartCount = document.getElementById("cartCount");
+const addCartButtons = document.querySelectorAll(".add-cart-btn");
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+updateCartCount();
+
+function updateCartCount() {
+    if (cartCount) {
+        cartCount.textContent = cart.length;
+    }
+}
+
+addCartButtons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        const productCard = button.closest(".product-card");
+
+        const product = {
+            id: productCard.dataset.productId,
+            name: productCard.dataset.name,
+            price: productCard.dataset.price,
+            image: productCard.dataset.image,
+            link: productCard.dataset.link
+        };
+
+        cart.push(product);
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        updateCartCount();
+
+        alert(product.name + " added to Cart!");
+    });
+
+});
 });
 
