@@ -262,3 +262,4 @@ document.addEventListener("click", function (event) {
         button.textContent = "🛒 Add to Cart";
     }, 1500);
 });
+});
