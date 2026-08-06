@@ -270,14 +270,16 @@ function renderCart() {
 if (cartLink && cartDrawer) {
     cartLink.addEventListener("click", function (event) {
         event.preventDefault();
+
         renderCart();
-        cartDrawer.classList.add("open");
+
+        cartDrawer.style.right = "0";
     });
 }
 
 if (closeCart && cartDrawer) {
     closeCart.addEventListener("click", function () {
-        cartDrawer.classList.remove("open");
+        cartDrawer.style.right = "-420px";
     });
 }
 
