@@ -172,6 +172,7 @@ const wishlistContainer = document.getElementById("wishlistContainer");
 
 if (wishlistLink && wishlistSection && wishlistContainer) {
     wishlistLink.addEventListener("click", function (event) {
+        console.log("Wishlist Clicked");
         event.preventDefault();
 
         wishlistContainer.innerHTML = "";
