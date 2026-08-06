@@ -129,7 +129,7 @@ if (slides.length > 0) {
 
 const wishlistCount = document.getElementById("wishlistCount");
 const wishlistButtons = document.querySelectorAll(".wishlist");
-
+console.log("Wishlist buttons:", wishlistButtons.length);
 let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
 if (wishlistCount) {
