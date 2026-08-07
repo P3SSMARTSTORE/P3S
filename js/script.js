@@ -293,10 +293,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateCartCount() {
 
-        if (cartCount) {
-            cartCount.textContent = cart.length;
-        }
+    let totalQty = 0;
+
+    cart.forEach(function(item){
+
+        totalQty += item.qty || 1;
+
+    });
+
+    if(cartCount){
+
+        cartCount.textContent = totalQty;
+
     }
+}
 
     updateCartCount();
 
