@@ -501,7 +501,53 @@ document.addEventListener("DOMContentLoaded", function () {
             renderCart();
         }
     );
+/* ==========================
+   CART QUANTITY + / -
+========================== */
 
+document.addEventListener("click", function (event) {
+
+    const plusBtn = event.target.closest(".qty-plus");
+    const minusBtn = event.target.closest(".qty-minus");
+
+    if (plusBtn) {
+        const index = Number(plusBtn.dataset.index);
+
+        if (!cart[index].qty) {
+            cart[index].qty = 1;
+        }
+
+        cart[index].qty++;
+
+        localStorage.setItem(
+            "cart",
+            JSON.stringify(cart)
+        );
+
+        renderCart();
+        return;
+    }
+
+    if (minusBtn) {
+        const index = Number(minusBtn.dataset.index);
+
+        if (!cart[index].qty) {
+            cart[index].qty = 1;
+        }
+
+        if (cart[index].qty > 1) {
+            cart[index].qty--;
+        }
+
+        localStorage.setItem(
+            "cart",
+            JSON.stringify(cart)
+        );
+
+        renderCart();
+    }
+
+});
 
     /* Checkout */
 
