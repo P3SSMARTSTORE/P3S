@@ -400,12 +400,29 @@ document.addEventListener("DOMContentLoaded", function () {
                      alt="${item.name}">
 
                 <div>
-                    <h4>${item.name}</h4>
-                    <p>
-                        ₹${Number(item.price)
-                            .toLocaleString("en-IN")}
-                    </p>
-                </div>
+    <h4>${item.name}</h4>
+
+    <p>₹${Number(item.price).toLocaleString("en-IN")}</p>
+
+    <div class="qty-box">
+
+        <button class="qty-minus"
+                data-index="${index}">
+            −
+        </button>
+
+        <span class="qty">
+            ${item.qty || 1}
+        </span>
+
+        <button class="qty-plus"
+                data-index="${index}">
+            +
+        </button>
+
+    </div>
+
+</div>
 
                 <button
                     type="button"
