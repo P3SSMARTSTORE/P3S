@@ -388,7 +388,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         cart.forEach(function (item, index) {
 
-            total += Number(item.price) || 0;
+            const qty = item.qty || 1;
+
+total += (Number(item.price) || 0) * qty;
 
             const cartItem =
                 document.createElement("div");
