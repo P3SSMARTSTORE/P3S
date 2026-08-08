@@ -305,23 +305,7 @@ const mobileWishlistLink =
             }
         );
     }
-    if (
-    wishlistLink &&
-    wishlistSection &&
-    wishlistContainer
-) {
-    // आपका मौजूदा Desktop Wishlist code
-}
-
-/* इसके ठीक नीचे नया Mobile Wishlist code */
-
-if (
-    mobileWishlistLink &&
-    wishlistSection &&
-    wishlistContainer
-) {
-    // नया Mobile Wishlist code यहाँ आएगा
-}
+   
         /* ==========================
        CART SYSTEM
     ========================== */
