@@ -305,7 +305,56 @@ const mobileWishlistLink =
             }
         );
     }
-   
+   if (
+    mobileWishlistLink &&
+    wishlistSection &&
+    wishlistContainer
+) {
+    mobileWishlistLink.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        wishlistContainer.innerHTML = "";
+
+        const savedWishlist =
+            JSON.parse(localStorage.getItem("wishlist")) || [];
+
+        productCards.forEach(function (card, index) {
+
+            if (savedWishlist.includes(index)) {
+
+                const clonedCard = card.cloneNode(true);
+
+                const heart =
+                    clonedCard.querySelector(".wishlist");
+
+                if (heart) {
+                    heart.remove();
+                }
+
+                wishlistContainer.appendChild(clonedCard);
+            }
+        });
+
+        if (hero) hero.style.display = "none";
+        if (categories) categories.style.display = "none";
+        if (featured) featured.style.display = "none";
+        if (deals) deals.style.display = "none";
+        if (bestSellers) bestSellers.style.display = "none";
+        if (noResults) noResults.style.display = "none";
+
+        wishlistSection.style.display = "block";
+
+        if (savedWishlist.length === 0) {
+            wishlistContainer.innerHTML =
+                "<p style='text-align:center;font-size:20px;'>❤️ Your Wishlist is Empty</p>";
+        }
+
+        wishlistSection.scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+}
         /* ==========================
        CART SYSTEM
     ========================== */
