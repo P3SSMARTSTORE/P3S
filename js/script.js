@@ -687,7 +687,22 @@ const mobileCartLink = document.getElementById("mobileCartLink");
             }
         );
     }
+if (mobileCartLink && cartDrawer) {
 
+    mobileCartLink.addEventListener(
+        "click",
+        function (event) {
+
+            event.preventDefault();
+
+            renderCart();
+
+            cartDrawer.classList.add(
+                "open"
+            );
+        }
+    );
+}
 
     /* ==========================
        CLOSE CART
