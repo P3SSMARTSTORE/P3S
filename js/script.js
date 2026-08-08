@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 card.style.display = "none";
             }
-
         });
 
         if (searchText === "") {
@@ -59,9 +58,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (searchInput) {
+
         searchInput.addEventListener("input", filterProducts);
 
         searchInput.addEventListener("keydown", function (event) {
+
             if (event.key === "Enter") {
                 filterProducts();
             }
@@ -73,9 +74,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (clearSearch) {
+
         clearSearch.addEventListener("click", function () {
+
+            if (!searchInput) return;
+
             searchInput.value = "";
+
             filterProducts();
+
             searchInput.focus();
         });
     }
@@ -105,7 +112,8 @@ document.addEventListener("DOMContentLoaded", function () {
             dot.classList.remove("active");
         });
 
-        currentSlide = (index + slides.length) % slides.length;
+        currentSlide =
+            (index + slides.length) % slides.length;
 
         slides[currentSlide].classList.add("active");
 
@@ -119,35 +127,49 @@ document.addEventListener("DOMContentLoaded", function () {
         clearInterval(sliderTimer);
 
         if (slides.length > 1) {
+
             sliderTimer = setInterval(function () {
+
                 showSlide(currentSlide + 1);
+
             }, 3000);
         }
     }
 
     if (nextBtn) {
+
         nextBtn.addEventListener("click", function () {
+
             showSlide(currentSlide + 1);
+
             startSlider();
         });
     }
 
     if (prevBtn) {
+
         prevBtn.addEventListener("click", function () {
+
             showSlide(currentSlide - 1);
+
             startSlider();
         });
     }
 
     dots.forEach(function (dot, index) {
+
         dot.addEventListener("click", function () {
+
             showSlide(index);
+
             startSlider();
         });
     });
 
     if (slides.length > 0) {
+
         showSlide(0);
+
         startSlider();
     }
 
@@ -156,13 +178,17 @@ document.addEventListener("DOMContentLoaded", function () {
        WISHLIST
     ========================== */
 
-    const wishlistCount = document.getElementById("wishlistCount");
-    const wishlistButtons = document.querySelectorAll(".wishlist");
+    const wishlistCount =
+        document.getElementById("wishlistCount");
+
+    const wishlistButtons =
+        document.querySelectorAll(".wishlist");
 
     let wishlist =
         JSON.parse(localStorage.getItem("wishlist")) || [];
 
     function updateWishlistCount() {
+
         if (wishlistCount) {
             wishlistCount.textContent = wishlist.length;
         }
@@ -189,6 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
 
                 wishlist.push(index);
+
                 button.classList.add("active");
             }
 
@@ -203,7 +230,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ==========================
-       SHOW WISHLIST
+       SHOW WISHLIST PRODUCTS
     ========================== */
 
     const wishlistLink =
@@ -243,9 +270,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 card.cloneNode(true);
 
                             const heart =
-                                clonedCard.querySelector(
-                                    ".wishlist"
-                                );
+                                clonedCard.querySelector(".wishlist");
 
                             if (heart) {
                                 heart.remove();
@@ -279,10 +304,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         );
     }
-
-
-    /* ==========================
-       CART
+        /* ==========================
+       CART SYSTEM
     ========================== */
 
     const cartCount =
@@ -291,65 +314,187 @@ document.addEventListener("DOMContentLoaded", function () {
     let cart =
         JSON.parse(localStorage.getItem("cart")) || [];
 
+
+    /* पुराने Cart Data को सही Format में लाना */
+
+    function normalizeCart() {
+
+        const mergedCart = [];
+
+        cart.forEach(function (item) {
+
+            const productId =
+                item.id || item.name;
+
+            const quantity =
+                Number(item.qty) > 0
+                    ? Number(item.qty)
+                    : 1;
+
+            const existingItem =
+                mergedCart.find(function (savedItem) {
+
+                    return savedItem.id === productId;
+                });
+
+            if (existingItem) {
+
+                existingItem.qty += quantity;
+
+            } else {
+
+                mergedCart.push({
+
+                    id: productId,
+
+                    name:
+                        item.name || "Product",
+
+                    price:
+                        Number(item.price) || 0,
+
+                    image:
+                        item.image || "",
+
+                    link:
+                        item.link || "#",
+
+                    qty: quantity
+                });
+            }
+        });
+
+        cart = mergedCart;
+
+        localStorage.setItem(
+            "cart",
+            JSON.stringify(cart)
+        );
+    }
+
+
+    /* ==========================
+       HEADER CART COUNT
+    ========================== */
+
     function updateCartCount() {
 
-    let totalQty = 0;
+        let totalQuantity = 0;
 
-    cart.forEach(function(item){
+        cart.forEach(function (item) {
 
-        totalQty += item.qty || 1;
+            totalQuantity +=
+                Number(item.qty) || 1;
+        });
 
-    });
+        if (cartCount) {
 
-    if(cartCount){
-
-        cartCount.textContent = totalQty;
-
+            cartCount.textContent =
+                totalQuantity;
+        }
     }
-}
+
+
+    normalizeCart();
 
     updateCartCount();
 
 
-    /* Add to Cart */
+    /* ==========================
+       ADD TO CART
+    ========================== */
 
     document.addEventListener(
         "click",
         function (event) {
 
             const button =
-                event.target.closest(".add-cart-btn");
+                event.target.closest(
+                    ".add-cart-btn"
+                );
 
             if (!button) return;
 
+
             const productCard =
-                button.closest(".product-card");
+                button.closest(
+                    ".product-card"
+                );
 
             if (!productCard) return;
 
-            const product = {
-                id: productCard.dataset.productId,
-                name: productCard.dataset.name,
-                price: productCard.dataset.price,
-                image: productCard.dataset.image,
-                link: productCard.dataset.link
-            };
 
-            cart.push(product);
+            const productId =
+                productCard.dataset.productId ||
+                productCard.dataset.name;
+
+
+            const existingItem =
+                cart.find(function (item) {
+
+                    return item.id === productId;
+                });
+
+
+            /* Same Product पहले से Cart में है */
+
+            if (existingItem) {
+
+                existingItem.qty =
+                    (Number(existingItem.qty) || 1)
+                    + 1;
+
+            } else {
+
+                /* नया Product */
+
+                const product = {
+
+                    id: productId,
+
+                    name:
+                        productCard.dataset.name ||
+                        "Product",
+
+                    price:
+                        Number(
+                            productCard.dataset.price
+                        ) || 0,
+
+                    image:
+                        productCard.dataset.image ||
+                        "",
+
+                    link:
+                        productCard.dataset.link ||
+                        "#",
+
+                    qty: 1
+                };
+
+
+                cart.push(product);
+            }
+
 
             localStorage.setItem(
                 "cart",
                 JSON.stringify(cart)
             );
 
+
             updateCartCount();
+
 
             button.textContent =
                 "✅ Added to Cart";
 
+
             setTimeout(function () {
+
                 button.textContent =
                     "🛒 Add to Cart";
+
             }, 1500);
         }
     );
@@ -360,99 +505,168 @@ document.addEventListener("DOMContentLoaded", function () {
     ========================== */
 
     const cartLink =
-        document.getElementById("cartLink");
+        document.getElementById(
+            "cartLink"
+        );
 
     const cartDrawer =
-        document.getElementById("cartDrawer");
+        document.getElementById(
+            "cartDrawer"
+        );
 
     const closeCart =
-        document.getElementById("closeCart");
+        document.getElementById(
+            "closeCart"
+        );
 
     const cartItems =
-        document.getElementById("cartItems");
+        document.getElementById(
+            "cartItems"
+        );
 
     const cartTotal =
-        document.getElementById("cartTotal");
+        document.getElementById(
+            "cartTotal"
+        );
 
     const checkoutBtn =
-        document.getElementById("checkoutBtn");
+        document.getElementById(
+            "checkoutBtn"
+        );
 
+
+    /* ==========================
+       RENDER CART
+    ========================== */
 
     function renderCart() {
 
-        if (!cartItems || !cartTotal) return;
+        if (!cartItems || !cartTotal) {
+            return;
+        }
+
 
         cartItems.innerHTML = "";
+
+
+        /* Empty Cart */
 
         if (cart.length === 0) {
 
             cartItems.innerHTML =
-                '<p class="cart-empty">Your cart is empty.</p>';
+                '<p class="cart-empty">' +
+                'Your cart is empty.' +
+                '</p>';
 
             cartTotal.textContent = "0";
 
             return;
         }
 
+
         let total = 0;
 
-        cart.forEach(function (item, index) {
 
-            const qty = item.qty || 1;
+        cart.forEach(
+            function (item, index) {
 
-total += (Number(item.price) || 0) * qty;
+                const quantity =
+                    Number(item.qty) || 1;
 
-            const cartItem =
-                document.createElement("div");
+                const price =
+                    Number(item.price) || 0;
 
-            cartItem.className = "cart-item";
 
-            cartItem.innerHTML = `
-                <img src="${item.image}"
-                     alt="${item.name}">
+                /* Price × Quantity */
 
-                <div>
-    <h4>${item.name}</h4>
+                total +=
+                    price * quantity;
 
-    <p>₹${Number(item.price).toLocaleString("en-IN")}</p>
 
-    <div class="qty-box">
+                const cartItem =
+                    document.createElement(
+                        "div"
+                    );
 
-        <button class="qty-minus"
-                data-index="${index}">
-            −
-        </button>
 
-        <span class="qty">
-            ${item.qty || 1}
-        </span>
+                cartItem.className =
+                    "cart-item";
 
-        <button class="qty-plus"
-                data-index="${index}">
-            +
-        </button>
 
-    </div>
+                cartItem.innerHTML = `
 
-</div>
+                    <img
+                        src="${item.image}"
+                        alt="${item.name}"
+                    >
 
-                <button
-                    type="button"
-                    class="remove-cart-item"
-                    data-index="${index}">
-                    ✖
-                </button>
-            `;
+                    <div>
 
-            cartItems.appendChild(cartItem);
-        });
+                        <h4>
+                            ${item.name}
+                        </h4>
+
+                        <p>
+                            ₹${price.toLocaleString(
+                                "en-IN"
+                            )}
+                        </p>
+
+
+                        <div class="qty-box">
+
+                            <button
+                                type="button"
+                                class="qty-minus"
+                                data-index="${index}">
+                                −
+                            </button>
+
+
+                            <span class="qty">
+                                ${quantity}
+                            </span>
+
+
+                            <button
+                                type="button"
+                                class="qty-plus"
+                                data-index="${index}">
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="remove-cart-item"
+                        data-index="${index}"
+                        aria-label="Remove product">
+                        ✖
+                    </button>
+                `;
+
+
+                cartItems.appendChild(
+                    cartItem
+                );
+            }
+        );
+
 
         cartTotal.textContent =
-            total.toLocaleString("en-IN");
+            total.toLocaleString(
+                "en-IN"
+            );
     }
 
 
-    /* Open Cart */
+    /* ==========================
+       OPEN CART
+    ========================== */
 
     if (cartLink && cartDrawer) {
 
@@ -464,13 +678,17 @@ total += (Number(item.price) || 0) * qty;
 
                 renderCart();
 
-                cartDrawer.classList.add("open");
+                cartDrawer.classList.add(
+                    "open"
+                );
             }
         );
     }
 
 
-    /* Close Cart */
+    /* ==========================
+       CLOSE CART
+    ========================== */
 
     if (closeCart && cartDrawer) {
 
@@ -478,13 +696,15 @@ total += (Number(item.price) || 0) * qty;
             "click",
             function () {
 
-                cartDrawer.classList.remove("open");
+                cartDrawer.classList.remove(
+                    "open"
+                );
             }
         );
     }
-
-
-    /* Remove Cart Product */
+        /* ==========================
+       REMOVE CART PRODUCT
+    ========================== */
 
     document.addEventListener(
         "click",
@@ -498,9 +718,18 @@ total += (Number(item.price) || 0) * qty;
             if (!removeButton) return;
 
             const index =
-                Number(removeButton.dataset.index);
+                Number(
+                    removeButton.dataset.index
+                );
 
-            if (!Number.isInteger(index)) return;
+            if (
+                !Number.isInteger(index) ||
+                !cart[index]
+            ) {
+                return;
+            }
+
+            /* Product Remove */
 
             cart.splice(index, 1);
 
@@ -509,59 +738,135 @@ total += (Number(item.price) || 0) * qty;
                 JSON.stringify(cart)
             );
 
+            /* Header Count Update */
+
             updateCartCount();
+
+            /* Cart फिर से दिखाएँ */
+
             renderCart();
         }
     );
-/* ==========================
-   CART QUANTITY + / -
-========================== */
 
-document.addEventListener("click", function (event) {
 
-    const plusBtn = event.target.closest(".qty-plus");
-    const minusBtn = event.target.closest(".qty-minus");
+    /* ==========================
+       QUANTITY + / -
+    ========================== */
 
-    if (plusBtn) {
-        const index = Number(plusBtn.dataset.index);
+    document.addEventListener(
+        "click",
+        function (event) {
 
-        if (!cart[index].qty) {
-            cart[index].qty = 1;
+            const plusButton =
+                event.target.closest(
+                    ".qty-plus"
+                );
+
+            const minusButton =
+                event.target.closest(
+                    ".qty-minus"
+                );
+
+
+            /* ==================
+               PLUS +
+            ================== */
+
+            if (plusButton) {
+
+                const index =
+                    Number(
+                        plusButton.dataset.index
+                    );
+
+                if (
+                    !Number.isInteger(index) ||
+                    !cart[index]
+                ) {
+                    return;
+                }
+
+
+                cart[index].qty =
+                    (Number(cart[index].qty) || 1)
+                    + 1;
+
+
+                localStorage.setItem(
+                    "cart",
+                    JSON.stringify(cart)
+                );
+
+
+                /* Cart Header Number बदलेगा */
+
+                updateCartCount();
+
+
+                /* Quantity और Total बदलेगा */
+
+                renderCart();
+
+                return;
+            }
+
+
+            /* ==================
+               MINUS -
+            ================== */
+
+            if (minusButton) {
+
+                const index =
+                    Number(
+                        minusButton.dataset.index
+                    );
+
+                if (
+                    !Number.isInteger(index) ||
+                    !cart[index]
+                ) {
+                    return;
+                }
+
+
+                const currentQuantity =
+                    Number(
+                        cart[index].qty
+                    ) || 1;
+
+
+                if (currentQuantity > 1) {
+
+                    cart[index].qty =
+                        currentQuantity - 1;
+
+                } else {
+
+                    /* Quantity 1 पर - दबाने पर
+                       Product Cart से हट जाएगा */
+
+                    cart.splice(index, 1);
+                }
+
+
+                localStorage.setItem(
+                    "cart",
+                    JSON.stringify(cart)
+                );
+
+
+                updateCartCount();
+
+                renderCart();
+            }
         }
+    );
 
-        cart[index].qty++;
 
-        localStorage.setItem(
-            "cart",
-            JSON.stringify(cart)
-        );
-
-        renderCart();
-        return;
-    }
-
-    if (minusBtn) {
-        const index = Number(minusBtn.dataset.index);
-
-        if (!cart[index].qty) {
-            cart[index].qty = 1;
-        }
-
-        if (cart[index].qty > 1) {
-            cart[index].qty--;
-        }
-
-        localStorage.setItem(
-            "cart",
-            JSON.stringify(cart)
-        );
-
-        renderCart();
-    }
-
-});
-
-    /* Checkout */
+    /* ==========================
+       BUY ON AMAZON
+    ========================== */
 
     if (checkoutBtn) {
 
@@ -571,16 +876,43 @@ document.addEventListener("click", function (event) {
 
                 if (cart.length === 0) {
 
-                    alert("Your cart is empty.");
+                    alert(
+                        "Your cart is empty."
+                    );
+
                     return;
                 }
 
-                window.open(
-                    cart[0].link,
-                    "_blank"
-                );
+
+                /*
+                   अभी पहला Cart Product
+                   Amazon में खुलेगा.
+                */
+
+                const amazonLink =
+                    cart[0].link;
+
+
+                if (
+                    amazonLink &&
+                    amazonLink !== "#"
+                ) {
+
+                    window.open(
+                        amazonLink,
+                        "_blank"
+                    );
+                }
             }
         );
     }
 
-});
+
+    /* ==========================
+       INITIAL CART RENDER
+    ========================== */
+
+    updateCartCount();
+
+
+}); // DOMContentLoaded END
