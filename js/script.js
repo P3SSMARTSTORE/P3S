@@ -310,7 +310,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const cartCount =
         document.getElementById("cartCount");
-
+const mobileCartCount = document.getElementById("mobileCartCount");
+const mobileCartLink = document.getElementById("mobileCartLink");
     let cart =
         JSON.parse(localStorage.getItem("cart")) || [];
 
