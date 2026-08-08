@@ -380,20 +380,22 @@ const mobileCartLink = document.getElementById("mobileCartLink");
 
     function updateCartCount() {
 
-        let totalQuantity = 0;
+    let totalQuantity = 0;
 
-        cart.forEach(function (item) {
+    cart.forEach(function (item) {
+        totalQuantity += Number(item.qty) || 1;
+    });
 
-            totalQuantity +=
-                Number(item.qty) || 1;
-        });
-
-        if (cartCount) {
-
-            cartCount.textContent =
-                totalQuantity;
-        }
+    // Desktop Cart Count
+    if (cartCount) {
+        cartCount.textContent = totalQuantity;
     }
+
+    // Mobile Cart Count
+    if (mobileCartCount) {
+        mobileCartCount.textContent = totalQuantity;
+    }
+}
 
 
     normalizeCart();
