@@ -913,6 +913,24 @@ document.addEventListener("DOMContentLoaded", function () {
     ========================== */
 
     updateCartCount();
+/* ==========================
+   MOBILE MENU
+========================== */
 
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.querySelector("nav");
+
+if (menuToggle && navMenu) {
+
+    menuToggle.addEventListener("click", function () {
+        navMenu.classList.toggle("open");
+    });
+
+    navMenu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            navMenu.classList.remove("open");
+        });
+    });
+}
 
 }); // DOMContentLoaded END
