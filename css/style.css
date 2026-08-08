@@ -932,3 +932,46 @@ footer p{
         width: 100%;
     }
 }
+/* =========================
+   MOBILE HAMBURGER MENU
+========================= */
+
+.menu-toggle{
+    display:none;
+    border:none;
+    background:#0d6efd;
+    color:#fff;
+    width:42px;
+    height:42px;
+    border-radius:10px;
+    font-size:24px;
+    cursor:pointer;
+}
+
+@media (max-width:600px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    nav{
+        display:none;
+        width:100%;
+        flex-direction:column;
+        align-items:center;
+        gap:12px;
+        padding:12px 0;
+        background:#fff;
+    }
+
+    nav.open{
+        display:flex;
+    }
+
+    nav a{
+        width:100%;
+        text-align:center;
+        padding:8px 0;
+        font-size:15px;
+    }
+}
