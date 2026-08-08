@@ -235,7 +235,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const wishlistLink =
         document.getElementById("wishlistLink");
-
+const mobileWishlistLink =
+    document.getElementById("mobileWishlistLink");
     const wishlistSection =
         document.getElementById("wishlist-products");
 
