@@ -843,3 +843,27 @@ footer p{
 .buy-btn{
     margin-top:10px;
 }
+/* FIX PRODUCT BUTTON ALIGNMENT */
+
+.product-card{
+    display:flex;
+    flex-direction:column;
+    height:100%;
+}
+
+.product-info{
+    display:flex;
+    flex-direction:column;
+    flex:1;
+}
+
+/* Add to Cart को नीचे push करें */
+.product-info .add-cart-btn{
+    margin-top:auto;
+    margin-bottom:0;
+}
+
+/* पुराने margin-top:auto को override करें */
+.product-info .buy-btn{
+    margin-top:10px;
+}
