@@ -819,3 +819,27 @@ footer p{
 .add-cart-btn:active {
     transform: scale(0.98);
 }
+/* =========================
+   EQUAL PRODUCT CARD HEIGHT
+========================= */
+
+.product-card{
+    display:flex;
+    flex-direction:column;
+}
+
+.product-info{
+    display:flex;
+    flex-direction:column;
+    flex:1;
+}
+
+/* Buttons को card के bottom में रखें */
+.add-cart-btn{
+    margin-top:auto;
+}
+
+/* Amazon button spacing */
+.buy-btn{
+    margin-top:10px;
+}
