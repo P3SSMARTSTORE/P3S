@@ -1180,3 +1180,21 @@ html{
         margin-top:10px;
     }
 }
+@media (max-width:600px){
+
+    .product-card{
+        display:flex;
+        flex-direction:column;
+        height:100%;
+    }
+
+    .product-info{
+        display:flex;
+        flex-direction:column;
+        flex:1;
+    }
+
+    .add-cart-btn{
+        margin-top:auto;
+    }
+}
