@@ -107,7 +107,8 @@ const productText = (
 ========================== */
 
 const categoryLinks = document.querySelectorAll(".category-link");
-
+const categoryBack = document.getElementById("categoryBack");
+const categoryBackBtn = document.getElementById("categoryBackBtn");
 categoryLinks.forEach(function (link) {
 
     link.addEventListener("click", function (event) {
