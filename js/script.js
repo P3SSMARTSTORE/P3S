@@ -185,6 +185,32 @@ if (categoryBack) {
         }
     });
 });
+    if (categoryBackBtn) {
+
+    categoryBackBtn.addEventListener("click", function () {
+
+        productCards.forEach(function (card) {
+            card.style.display = "";
+        });
+
+        if (hero) hero.style.display = "";
+        if (categories) categories.style.display = "";
+        if (featured) featured.style.display = "";
+        if (deals) deals.style.display = "";
+        if (bestSellers) bestSellers.style.display = "";
+        if (noResults) noResults.style.display = "none";
+
+        if (categoryBack) {
+            categoryBack.style.display = "none";
+        }
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
+}
     /* ==========================
        HERO SLIDER
     ========================== */
