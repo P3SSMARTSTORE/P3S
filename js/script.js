@@ -25,8 +25,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         productCards.forEach(function (card) {
 
-            const productText = card.textContent.toLowerCase();
+            const image = card.querySelector("img");
 
+const productText = (
+    card.textContent + " " +
+    (card.dataset.name || "") + " " +
+    (card.dataset.category || "") + " " +
+    (card.dataset.keywords || "") + " " +
+    (image ? image.alt : "")
+).toLowerCase();
             if (productText.includes(searchText)) {
                 card.style.display = "";
                 found = true;
