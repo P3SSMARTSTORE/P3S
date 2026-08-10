@@ -110,7 +110,9 @@ const categoryLinks = document.querySelectorAll(".category-link");
 
 categoryLinks.forEach(function (link) {
 
-    link.addEventListener("click", function () {
+   link.addEventListener("click", function (event) {
+
+    event.preventDefault();
 
         const selectedCategory = link.dataset.filter;
 
