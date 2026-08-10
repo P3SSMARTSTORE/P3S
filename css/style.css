@@ -1198,3 +1198,17 @@ html{
         margin-top:auto;
     }
 }
+.category-link{
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+}
+
+.category-link .card{
+    border: 2px solid transparent;
+}
+
+.category-link:focus,
+.category-link:active{
+    outline: none;
+}
