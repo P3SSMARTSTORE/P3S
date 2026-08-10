@@ -1219,3 +1219,19 @@ html{
 .products{
     padding-top: 35px;
 }
+#noResults{
+    display:none;
+    text-align:center;
+    padding:40px 20px;
+    margin:30px auto;
+    max-width:600px;
+    font-size:18px;
+    font-weight:600;
+}
+
+#noResults::before{
+    content:"🔍";
+    display:block;
+    font-size:42px;
+    margin-bottom:12px;
+}
