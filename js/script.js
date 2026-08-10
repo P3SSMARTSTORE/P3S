@@ -173,16 +173,12 @@ if (categoryBack) {
                     : "block";
         }
 
-        const firstMatch = document.querySelector(
-            '.product-card[style=""], .product-card:not([style*="display: none"])'
-        );
-
-        if (firstMatch) {
-            firstMatch.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        }
+        if (categoryBack) {
+    categoryBack.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
     });
 });
     if (categoryBackBtn) {
