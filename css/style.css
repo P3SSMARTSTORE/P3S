@@ -1137,3 +1137,8 @@ footer p{
 html{
     scroll-behavior:smooth;
 }
+#products,
+#deals,
+#best-sellers{
+    scroll-margin-top: 120px;
+}
