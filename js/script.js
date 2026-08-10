@@ -56,10 +56,7 @@ const productText = (
 
             if (hero) hero.style.display = "none";
             if (categories) categories.style.display = "none";
-            if (featured) featured.style.display = found ? "" : "none";
-            if (deals) deals.style.display = found ? "" : "none";
-            if (bestSellers) bestSellers.style.display = found ? "" : "none";
-
+           
             noResults.style.display = found ? "none" : "block";
         }
     }
