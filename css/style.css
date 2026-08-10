@@ -1134,3 +1134,6 @@ footer p{
 .category-link .card{
     cursor:pointer;
 }
+html{
+    scroll-behavior:smooth;
+}
