@@ -52,14 +52,26 @@ const productText = (
 
             noResults.style.display = "none";
 
-        } else {
+      } else {
 
-            if (hero) hero.style.display = "none";
-            if (categories) categories.style.display = "none";
-           
-            noResults.style.display = found ? "none" : "block";
-        }
+    if (hero) hero.style.display = "none";
+    if (categories) categories.style.display = "none";
+
+    if (!found) {
+        if (featured) featured.style.display = "none";
+        if (deals) deals.style.display = "none";
+        if (bestSellers) bestSellers.style.display = "none";
+
+        noResults.style.display = "block";
+
+    } else {
+        if (featured) featured.style.display = "";
+        if (deals) deals.style.display = "";
+        if (bestSellers) bestSellers.style.display = "";
+
+        noResults.style.display = "none";
     }
+}    }
 
     if (searchInput) {
 
