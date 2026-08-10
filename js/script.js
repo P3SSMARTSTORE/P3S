@@ -110,31 +110,78 @@ const categoryLinks = document.querySelectorAll(".category-link");
 
 categoryLinks.forEach(function (link) {
 
-   link.addEventListener("click", function (event) {
+    link.addEventListener("click", function (event) {
 
-    event.preventDefault();
+        event.preventDefault();
 
         const selectedCategory = link.dataset.filter;
 
         if (!selectedCategory) return;
+
+        let foundFeatured = false;
+        let foundDeals = false;
+        let foundBestSellers = false;
 
         productCards.forEach(function (card) {
 
             const productCategory =
                 (card.dataset.category || "").toLowerCase();
 
-            if (productCategory.includes(selectedCategory)) {
-                card.style.display = "";
-            } else {
-                card.style.display = "none";
-            }
+            const isMatch =
+                productCategory.includes(selectedCategory);
 
+            card.style.display = isMatch ? "" : "none";
+
+            if (isMatch) {
+
+                if (card.closest("#products")) {
+                    foundFeatured = true;
+                }
+
+                if (card.closest("#deals")) {
+                    foundDeals = true;
+                }
+
+                if (card.closest("#best-sellers")) {
+                    foundBestSellers = true;
+                }
+            }
         });
 
+        if (hero) hero.style.display = "none";
+        if (categories) categories.style.display = "none";
+
+        if (featured) {
+            featured.style.display = foundFeatured ? "" : "none";
+        }
+
+        if (deals) {
+            deals.style.display = foundDeals ? "" : "none";
+        }
+
+        if (bestSellers) {
+            bestSellers.style.display = foundBestSellers ? "" : "none";
+        }
+
+        if (noResults) {
+            noResults.style.display =
+                (foundFeatured || foundDeals || foundBestSellers)
+                    ? "none"
+                    : "block";
+        }
+
+        const firstMatch = document.querySelector(
+            '.product-card[style=""], .product-card:not([style*="display: none"])'
+        );
+
+        if (firstMatch) {
+            firstMatch.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
     });
-
 });
-
     /* ==========================
        HERO SLIDER
     ========================== */
