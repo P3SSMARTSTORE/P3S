@@ -102,7 +102,36 @@ const productText = (
             searchInput.focus();
         });
     }
+/* ==========================
+   CATEGORY FILTER
+========================== */
 
+const categoryLinks = document.querySelectorAll(".category-link");
+
+categoryLinks.forEach(function (link) {
+
+    link.addEventListener("click", function () {
+
+        const selectedCategory = link.dataset.filter;
+
+        if (!selectedCategory) return;
+
+        productCards.forEach(function (card) {
+
+            const productCategory =
+                (card.dataset.category || "").toLowerCase();
+
+            if (productCategory.includes(selectedCategory)) {
+                card.style.display = "";
+            } else {
+                card.style.display = "none";
+            }
+
+        });
+
+    });
+
+});
 
     /* ==========================
        HERO SLIDER
