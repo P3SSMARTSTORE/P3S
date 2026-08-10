@@ -1119,3 +1119,18 @@ footer p{
     }
 }
 <script src="js/script.js?v=37"></script>
+/* CATEGORY CLICKABLE CARDS */
+
+.category-link{
+    text-decoration:none;
+    color:inherit;
+    display:block;
+}
+
+.category-link:visited{
+    color:inherit;
+}
+
+.category-link .card{
+    cursor:pointer;
+}
