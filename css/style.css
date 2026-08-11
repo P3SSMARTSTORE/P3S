@@ -1235,3 +1235,37 @@ html{
     font-size:42px;
     margin-bottom:12px;
 }
+/* CATEGORY BACK BUTTON */
+
+#categoryBack{
+    display:none;
+    position:fixed;
+    top:100px;
+    left:20px;
+    z-index:9999;
+    padding:0;
+}
+
+#categoryBackBtn{
+    border:none;
+    background:#ff9800;
+    color:#fff;
+    padding:12px 18px;
+    border-radius:25px;
+    font-size:14px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 4px 12px rgba(0,0,0,0.18);
+}
+@media (max-width:600px){
+
+    #categoryBack{
+        top:90px;
+        left:10px;
+    }
+
+    #categoryBackBtn{
+        padding:10px 14px;
+        font-size:13px;
+    }
+}
