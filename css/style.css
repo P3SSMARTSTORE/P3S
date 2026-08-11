@@ -1316,3 +1316,33 @@ html{
     font-weight: 700;
     z-index: 5;
 }
+.product-card > .badge {
+    position: absolute !important;
+    top: 12px !important;
+    left: 12px !important;
+    background: #ef3333 !important;
+    color: #fff !important;
+    padding: 7px 12px !important;
+    border-radius: 20px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    z-index: 20 !important;
+}
+/* ===== PRODUCT BADGE FIX ===== */
+
+.product-card {
+    position: relative !important;
+}
+
+.product-card > .badge {
+    position: absolute !important;
+    top: 12px !important;
+    left: 12px !important;
+    background: #ef3333 !important;
+    color: #ffffff !important;
+    padding: 7px 12px !important;
+    border-radius: 20px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    z-index: 20 !important;
+}
