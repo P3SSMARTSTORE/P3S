@@ -1346,3 +1346,30 @@ html{
     font-weight: 700 !important;
     z-index: 20 !important;
 }
+/* ===== TODAY'S DEALS CARD ALIGNMENT ===== */
+
+#deals .product-grid {
+    align-items: stretch;
+}
+
+#deals .product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#deals .product-card > img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+}
+
+#deals .product-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#deals .add-cart-btn {
+    margin-top: auto;
+}
