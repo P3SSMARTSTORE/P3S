@@ -1286,3 +1286,15 @@ html{
     object-fit: fill !important;
     display: block !important;
 }
+/* PRODUCT SPECIFICATIONS */
+
+.product-specs {
+    margin: 10px 0 14px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #444;
+}
+
+.product-specs p {
+    margin: 3px 0;
+}
