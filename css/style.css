@@ -1298,3 +1298,21 @@ html{
 .product-specs p {
     margin: 3px 0;
 }
+/* FIX PRODUCT BADGE */
+
+.product-card {
+    position: relative;
+}
+
+.product-card .badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #ef3333;
+    color: white;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    z-index: 5;
+}
