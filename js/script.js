@@ -182,6 +182,33 @@ categoryLinks.forEach(function (link) {
 }
     });
 });
+    /* TOP MENU CATEGORY FILTER */
+
+const navCategoryLinks =
+    document.querySelectorAll(".nav-category-filter");
+
+navCategoryLinks.forEach(function (navLink) {
+
+    navLink.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        const selectedFilter = navLink.dataset.filter;
+
+        const matchingCategory =
+            document.querySelector(
+                '.category-link[data-filter="' +
+                selectedFilter +
+                '"]'
+            );
+
+        if (matchingCategory) {
+            matchingCategory.click();
+        }
+
+    });
+
+});
     if (categoryBackBtn) {
 
     categoryBackBtn.addEventListener("click", function () {
