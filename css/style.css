@@ -1286,3 +1286,22 @@ html{
         height: 180px;
     }
 }
+/* ===== FINAL HERO BANNER FIX ===== */
+
+.hero {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slide {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slide img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block;
+}
