@@ -118,9 +118,10 @@ categoryLinks.forEach(function (link) {
         const selectedCategory = link.dataset.filter;
 
         if (!selectedCategory) return;
-if (categoryBack) {
+        if (categoryBack) {
     categoryBack.style.display = "block";
 }
+
         let foundFeatured = false;
         let foundDeals = false;
         let foundBestSellers = false;
