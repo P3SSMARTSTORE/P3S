@@ -1226,7 +1226,12 @@ if (priceHistoryResult) {
 
         </div>
     `;
+const priceChartBox =
+    document.getElementById("priceChartBox");
 
+if (priceChartBox) {
+    priceChartBox.style.display = "block";
+}
     priceHistoryResult.scrollIntoView({
         behavior: "smooth",
         block: "center"
