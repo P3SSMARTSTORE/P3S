@@ -1572,3 +1572,44 @@ html{
         grid-template-columns: 1fr;
     }
 }
+/* ===== PRICE DROP ALERT ===== */
+
+.price-alert-box {
+    display: flex;
+    gap: 10px;
+    max-width: 500px;
+    margin: 18px auto;
+}
+
+.price-alert-box input {
+    flex: 1;
+    padding: 12px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.price-alert-box button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #ff9800;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.price-alert-box button:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 600px) {
+    .price-alert-box {
+        flex-direction: column;
+    }
+
+    .price-alert-box input,
+    .price-alert-box button {
+        width: 100%;
+    }
+}
