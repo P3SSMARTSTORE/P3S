@@ -1398,3 +1398,34 @@ html{
     margin-top: 5px;
     margin-bottom: 5px;
 }
+/* ===== FINAL HERO SLIDER SIZE FIX ===== */
+
+.hero {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 5;
+    overflow: hidden;
+}
+
+.slider .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover !important;
+    object-position: center;
+
+    display: none;
+}
+
+.slider .slide.active {
+    display: block;
+}
