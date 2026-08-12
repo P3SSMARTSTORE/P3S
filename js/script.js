@@ -1208,7 +1208,18 @@ if (priceHistoryResult) {
                 </div>
 
             </div>
+<div class="price-alert-box">
 
+    <input type="number"
+           id="targetPrice"
+           placeholder="Enter target price ₹">
+
+    <button type="button"
+            id="setPriceAlertBtn">
+        🔔 Set Price Alert
+    </button>
+
+</div>
             <p class="price-status">
                 📊 Price history data connection is the next step.
             </p>
