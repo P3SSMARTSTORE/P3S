@@ -1244,3 +1244,42 @@ if (priceHistoryResult) {
     });
 
 }
+/* ==========================
+   PRICE DROP ALERT
+========================== */
+
+document.addEventListener("click", function (event) {
+
+    if (event.target.id !== "setPriceAlertBtn") return;
+
+    const targetPriceInput =
+        document.getElementById("targetPrice");
+
+    const priceHistoryUrl =
+        document.getElementById("priceHistoryUrl");
+
+    const targetPrice =
+        targetPriceInput.value.trim();
+
+    if (!targetPrice || Number(targetPrice) <= 0) {
+        alert("Please enter a valid target price.");
+        return;
+    }
+
+    const productUrl = priceHistoryUrl.value.trim();
+
+    localStorage.setItem(
+        "p3sPriceAlert",
+        JSON.stringify({
+            productUrl: productUrl,
+            targetPrice: Number(targetPrice)
+        })
+    );
+
+    alert(
+        "🔔 Price Alert Saved!\n\n" +
+        "Target Price: ₹" + targetPrice +
+        "\n\nAutomatic notifications will be available after backend integration."
+    );
+
+});
