@@ -1283,3 +1283,34 @@ document.addEventListener("click", function (event) {
     );
 
 });
+/* ==========================
+   SHOW SAVED PRICE ALERT
+========================== */
+
+function showSavedPriceAlert() {
+
+    const savedAlertBox =
+        document.getElementById("savedAlertBox");
+
+    const savedAlert =
+        localStorage.getItem("p3sPriceAlert");
+
+    if (!savedAlertBox || !savedAlert) return;
+
+    try {
+
+        const alertData = JSON.parse(savedAlert);
+
+        savedAlertBox.innerHTML = `
+            🔔 <strong>Saved Price Alert:</strong>
+            ₹${alertData.targetPrice}
+        `;
+
+        savedAlertBox.style.display = "block";
+
+    } catch (error) {
+        console.log("Saved alert could not be loaded.");
+    }
+}
+
+showSavedPriceAlert();
