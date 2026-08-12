@@ -1373,3 +1373,28 @@ html{
 #deals .add-cart-btn {
     margin-top: auto;
 }
+/* ===== COMPACT PRODUCT CARDS ===== */
+
+.product-specs {
+    margin: 6px 0 10px;
+    line-height: 1.35;
+}
+
+.product-specs p {
+    margin: 2px 0;
+}
+
+.product-info {
+    padding-top: 8px;
+}
+
+.product-title {
+    margin-bottom: 6px;
+}
+
+.rating,
+.price,
+.discount {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
