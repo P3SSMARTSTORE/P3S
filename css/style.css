@@ -1625,3 +1625,13 @@ html{
     text-align: center;
     font-size: 14px;
 }
+.remove-alert-btn {
+    margin-left: 12px;
+    padding: 7px 12px;
+    border: none;
+    border-radius: 7px;
+    background: #e53935;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+}
