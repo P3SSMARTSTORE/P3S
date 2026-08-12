@@ -1175,11 +1175,52 @@ if (checkPriceBtn && priceHistoryUrl) {
 
             const asin = asinMatch[1].toUpperCase();
 
-            alert(
-                "Product found!\n\n" +
-                "ASIN: " + asin +
-                "\n\nPrice history feature is being prepared."
-            );
+          const priceHistoryResult =
+    document.getElementById("priceHistoryResult");
+
+if (priceHistoryResult) {
+
+    priceHistoryResult.innerHTML = `
+        <div class="price-result-card">
+
+            <h3>✅ Product Found</h3>
+
+            <p>
+                <strong>Amazon ASIN:</strong>
+                ${asin}
+            </p>
+
+            <div class="price-result-grid">
+
+                <div>
+                    <span>Current Price</span>
+                    <strong>Coming Soon</strong>
+                </div>
+
+                <div>
+                    <span>Lowest Price</span>
+                    <strong>Coming Soon</strong>
+                </div>
+
+                <div>
+                    <span>Best Time to Buy</span>
+                    <strong>Analyzing...</strong>
+                </div>
+
+            </div>
+
+            <p class="price-status">
+                📊 Price history data connection is the next step.
+            </p>
+
+        </div>
+    `;
+
+    priceHistoryResult.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
 
         } else {
 
