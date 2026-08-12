@@ -1150,3 +1150,45 @@ if (menuToggle && navMenu) {
 }
 
 }); // DOMContentLoaded END
+/* ==========================
+   PRICE HISTORY CHECKER
+========================== */
+
+const priceHistoryUrl = document.getElementById("priceHistoryUrl");
+const checkPriceBtn = document.getElementById("checkPriceBtn");
+
+if (checkPriceBtn && priceHistoryUrl) {
+
+    checkPriceBtn.addEventListener("click", function () {
+
+        const productUrl = priceHistoryUrl.value.trim();
+
+        if (productUrl === "") {
+            alert("Please paste an Amazon product link.");
+            return;
+        }
+
+        // Try to find Amazon ASIN / product code
+        const asinMatch = productUrl.match(/(?:dp\/|gp\/product\/)([A-Z0-9]{10})/i);
+
+        if (asinMatch) {
+
+            const asin = asinMatch[1].toUpperCase();
+
+            alert(
+                "Product found!\n\n" +
+                "ASIN: " + asin +
+                "\n\nPrice history feature is being prepared."
+            );
+
+        } else {
+
+            alert(
+                "Amazon link detected, but product code could not be found.\n\n" +
+                "Please paste the full Amazon product link."
+            );
+        }
+
+    });
+
+}
