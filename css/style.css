@@ -1408,7 +1408,7 @@ html{
 .slider {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 5;
+   aspect-ratio: 16 / 7;
     overflow: hidden;
 }
 
