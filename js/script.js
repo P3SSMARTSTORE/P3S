@@ -1320,3 +1320,23 @@ function showSavedPriceAlert() {
 }
 
 showSavedPriceAlert();
+/* ==========================
+   REMOVE SAVED PRICE ALERT
+========================== */
+
+document.addEventListener("click", function (event) {
+
+    if (event.target.id !== "removePriceAlertBtn") return;
+
+    localStorage.removeItem("p3sPriceAlert");
+
+    const savedAlertBox =
+        document.getElementById("savedAlertBox");
+
+    if (savedAlertBox) {
+        savedAlertBox.innerHTML = "";
+        savedAlertBox.style.display = "none";
+    }
+
+    alert("Price Alert Removed.");
+});
