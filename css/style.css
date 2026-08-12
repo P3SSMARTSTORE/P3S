@@ -1429,3 +1429,88 @@ html{
 .slider .slide.active {
     display: block;
 }
+/* ===== PRICE HISTORY CHECKER ===== */
+
+.price-checker {
+    padding: 28px 20px;
+    background: #f5f8fc;
+}
+
+.price-checker-box {
+    max-width: 950px;
+    margin: auto;
+    text-align: center;
+    background: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.price-checker-box h2 {
+    margin: 0 0 8px;
+    font-size: 28px;
+}
+
+.price-checker-box p {
+    margin-bottom: 18px;
+    color: #555;
+}
+
+.price-search {
+    display: flex;
+    max-width: 750px;
+    margin: 0 auto 12px;
+}
+
+.price-search input {
+    flex: 1;
+    padding: 14px 16px;
+    border: 1px solid #ddd;
+    border-radius: 10px 0 0 10px;
+    font-size: 15px;
+    outline: none;
+}
+
+.price-search button {
+    padding: 14px 22px;
+    border: none;
+    background: #1769ff;
+    color: white;
+    font-weight: 600;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+}
+
+.price-search button:hover {
+    background: #0755dc;
+}
+
+.price-checker-box small {
+    color: #777;
+}
+
+@media (max-width: 600px) {
+
+    .price-checker {
+        padding: 18px 12px;
+    }
+
+    .price-checker-box {
+        padding: 18px 12px;
+    }
+
+    .price-checker-box h2 {
+        font-size: 22px;
+    }
+
+    .price-search {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .price-search input,
+    .price-search button {
+        width: 100%;
+        border-radius: 8px;
+    }
+}
