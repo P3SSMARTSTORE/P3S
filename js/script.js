@@ -1302,9 +1302,15 @@ function showSavedPriceAlert() {
         const alertData = JSON.parse(savedAlert);
 
         savedAlertBox.innerHTML = `
-            🔔 <strong>Saved Price Alert:</strong>
-            ₹${alertData.targetPrice}
-        `;
+    🔔 <strong>Saved Price Alert:</strong>
+    ₹${alertData.targetPrice}
+
+    <button type="button"
+            id="removePriceAlertBtn"
+            class="remove-alert-btn">
+        🗑️ Remove
+    </button>
+`;
 
         savedAlertBox.style.display = "block";
 
