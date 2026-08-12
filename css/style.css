@@ -1635,3 +1635,31 @@ html{
     font-size: 13px;
     cursor: pointer;
 }
+/* ===== PRICE HISTORY GRAPH BOX ===== */
+
+.price-chart-box {
+    max-width: 750px;
+    margin: 18px auto 0;
+    padding: 18px;
+    background: #ffffff;
+    border: 1px solid #e1e7ef;
+    border-radius: 14px;
+}
+
+.price-chart-box h3 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.price-chart-placeholder {
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #cfd8e3;
+    border-radius: 10px;
+    background: #f8fafc;
+    color: #777;
+    text-align: center;
+    padding: 20px;
+}
