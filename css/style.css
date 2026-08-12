@@ -1613,3 +1613,15 @@ html{
         width: 100%;
     }
 }
+/* ===== SAVED PRICE ALERT ===== */
+
+.saved-alert-box {
+    max-width: 750px;
+    margin: 16px auto 0;
+    padding: 14px 16px;
+    background: #fff8e8;
+    border: 1px solid #ffd48a;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 14px;
+}
