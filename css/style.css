@@ -1700,3 +1700,21 @@ html{
     font-size: 13px;
     line-height: 1.5;
 }
+/* ===== WHATSAPP CHANNEL BUTTON ===== */
+
+.whatsapp-channel-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 12px 22px;
+    background: #25D366;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: 0.2s ease;
+}
+
+.whatsapp-channel-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.18);
+}
