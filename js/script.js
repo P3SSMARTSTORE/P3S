@@ -1182,7 +1182,7 @@ document.querySelectorAll(".footer-links a").forEach(function (link) {
 
 const priceHistoryUrl = document.getElementById("priceHistoryUrl");
 const checkPriceBtn = document.getElementById("checkPriceBtn");
-
+const v2PriceSummary = document.getElementById("v2PriceSummary");
 if (checkPriceBtn && priceHistoryUrl) {
 
     checkPriceBtn.addEventListener("click", function () {
@@ -1252,6 +1252,9 @@ if (priceHistoryResult) {
 
         </div>
     `;
+    if (v2PriceSummary) {
+    v2PriceSummary.style.display = "grid";
+}
 const priceChartBox =
     document.getElementById("priceChartBox");
 
