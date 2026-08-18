@@ -1749,3 +1749,25 @@ html{
         margin: 5px 6px;
     }
 }
+/* ===== PRICE TRACKER V2 STATUS ===== */
+
+.tracker-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 10px;
+    padding: 6px 12px;
+    background: #eefbf3;
+    border: 1px solid #b7ebc9;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #167a3e;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+}
