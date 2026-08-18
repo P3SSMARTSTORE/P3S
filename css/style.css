@@ -1718,3 +1718,34 @@ html{
     transform: translateY(-2px);
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.18);
 }
+/* ===== FINAL MOBILE SAFETY ===== */
+
+@media (max-width: 600px) {
+
+    .about-section {
+        width: auto;
+        margin: 15px 12px;
+        padding: 18px 14px;
+    }
+
+    .about-section h2 {
+        font-size: 21px;
+    }
+
+    .whatsapp-channel-btn {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .price-chart-box,
+    .saved-alert-box {
+        margin-left: 12px;
+        margin-right: 12px;
+        box-sizing: border-box;
+    }
+
+    .footer-links a {
+        display: inline-block;
+        margin: 5px 6px;
+    }
+}
