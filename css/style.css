@@ -1771,3 +1771,45 @@ html{
     background: #22c55e;
     border-radius: 50%;
 }
+/* ===== V2 PRICE SUMMARY ===== */
+
+.v2-price-summary {
+    max-width: 900px;
+    margin: 18px auto 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.v2-price-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px 12px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.v2-price-item span {
+    display: block;
+    font-size: 13px;
+    color: #667085;
+    margin-bottom: 6px;
+}
+
+.v2-price-item strong {
+    font-size: 18px;
+    color: #111827;
+}
+
+@media (max-width: 700px) {
+    .v2-price-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 420px) {
+    .v2-price-summary {
+        grid-template-columns: 1fr;
+    }
+}
