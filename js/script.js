@@ -1148,7 +1148,33 @@ if (menuToggle && navMenu) {
         });
     });
 }
+/* ==========================
+   FOOTER LINKS SCROLL
+========================== */
 
+document.querySelectorAll(".footer-links a").forEach(function (link) {
+
+    link.addEventListener("click", function (event) {
+
+        const targetId = link.getAttribute("href");
+
+        if (!targetId || !targetId.startsWith("#")) return;
+
+        const targetSection =
+            document.querySelector(targetId);
+
+        if (!targetSection) return;
+
+        event.preventDefault();
+
+        targetSection.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    });
+
+});
 }); // DOMContentLoaded END
 /* ==========================
    PRICE HISTORY CHECKER
