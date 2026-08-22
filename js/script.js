@@ -1213,6 +1213,42 @@ function updateV2PriceSummary(data) {
             data.lastUpdated || "—";
     }
 }
+async function fetchPriceData(asin) {
+
+    if (!P3S_API_BASE) {
+        return {
+            success: false,
+            message: "Live price data source not connected."
+        };
+    }
+
+    try {
+
+        const response = await fetch(
+            `${P3S_API_BASE}/api/price/${asin}`
+        );
+
+        if (!response.ok) {
+            throw new Error("Price data unavailable");
+        }
+
+        const data = await response.json();
+
+        return {
+            success: true,
+            data: data
+        };
+
+    } catch (error) {
+
+        console.error("P3S Price API Error:", error);
+
+        return {
+            success: false,
+            message: "Unable to load live price data."
+        };
+    }
+}
 /* ==========================
    PRICE HISTORY CHECKER
 ========================== */
