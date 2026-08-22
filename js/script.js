@@ -1237,6 +1237,15 @@ if (priceHistoryResult) {
     if (v2PriceSummary) {
     v2PriceSummary.style.display = "grid";
 }
+    const v2LastUpdated =
+    document.getElementById("v2LastUpdated");
+
+if (v2LastUpdated) {
+    const now = new Date();
+
+    v2LastUpdated.textContent =
+        now.toLocaleString("en-IN");
+}
 const priceChartBox =
     document.getElementById("priceChartBox");
 
