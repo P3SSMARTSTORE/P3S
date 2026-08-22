@@ -1176,7 +1176,10 @@ document.querySelectorAll(".footer-links a").forEach(function (link) {
 
 });
 }); // DOMContentLoaded END
+/* V2 BACKEND CONFIG */
+const P3S_API_BASE = "";
 function updateV2PriceSummary(data) {
+    
 
     const currentPrice =
         document.getElementById("v2CurrentPrice");
