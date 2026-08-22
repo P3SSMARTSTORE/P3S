@@ -1273,6 +1273,7 @@ if (checkPriceBtn && priceHistoryUrl) {
         if (asinMatch) {
 
             const asin = asinMatch[1].toUpperCase();
+            const livePriceResult = await fetchPriceData(asin);
 
           const priceHistoryResult =
     document.getElementById("priceHistoryResult");
