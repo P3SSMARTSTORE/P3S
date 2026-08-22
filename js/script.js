@@ -1216,25 +1216,7 @@ if (priceHistoryResult) {
                 ${asin}
             </p>
 
-            <div class="price-result-grid">
-
-                <div>
-                    <span>Current Price</span>
-                    <strong>Coming Soon</strong>
-                </div>
-
-                <div>
-                    <span>Lowest Price</span>
-                    <strong>Coming Soon</strong>
-                </div>
-
-                <div>
-                    <span>Best Time to Buy</span>
-                    <strong>Analyzing...</strong>
-                </div>
-
-            </div>
-<div class="price-alert-box">
+            <div class="price-alert-box">
 
     <input type="number"
            id="targetPrice"
