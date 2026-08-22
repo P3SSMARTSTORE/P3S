@@ -1177,7 +1177,7 @@ document.querySelectorAll(".footer-links a").forEach(function (link) {
 });
 }); // DOMContentLoaded END
 /* V2 BACKEND CONFIG */
-const P3S_API_BASE = "";
+const P3S_API_BASE = "https://p3s-backend.vercel.app";
 function updateV2PriceSummary(data) {
     
 
