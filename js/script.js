@@ -1258,7 +1258,7 @@ const checkPriceBtn = document.getElementById("checkPriceBtn");
 const v2PriceSummary = document.getElementById("v2PriceSummary");
 if (checkPriceBtn && priceHistoryUrl) {
 
-    checkPriceBtn.addEventListener("click", function () {
+   checkPriceBtn.addEventListener("click", async function () {
 
         const productUrl = priceHistoryUrl.value.trim();
 
