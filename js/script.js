@@ -1274,7 +1274,32 @@ if (checkPriceBtn && priceHistoryUrl) {
 
             const asin = asinMatch[1].toUpperCase();
             const livePriceResult = await fetchPriceData(asin);
+if (livePriceResult.success) {
 
+    updateV2PriceSummary({
+        currentPrice: livePriceResult.data.currentPrice || "—",
+        lowestPrice: livePriceResult.data.lowestPrice || "—",
+        highestPrice: livePriceResult.data.highestPrice || "—",
+        lastUpdated: livePriceResult.data.lastUpdated || new Date().toLocaleString("en-IN")
+    });
+
+    const v2DataStatus =
+        document.getElementById("v2DataStatus");
+
+    if (v2DataStatus) {
+        v2DataStatus.textContent = "✅ Live price data connected.";
+    }
+
+} else {
+
+    const v2DataStatus =
+        document.getElementById("v2DataStatus");
+
+    if (v2DataStatus) {
+        v2DataStatus.textContent =
+            "🔌 " + livePriceResult.message;
+    }
+}
           const priceHistoryResult =
     document.getElementById("priceHistoryResult");
 
