@@ -1176,6 +1176,40 @@ document.querySelectorAll(".footer-links a").forEach(function (link) {
 
 });
 }); // DOMContentLoaded END
+function updateV2PriceSummary(data) {
+
+    const currentPrice =
+        document.getElementById("v2CurrentPrice");
+
+    const lowestPrice =
+        document.getElementById("v2LowestPrice");
+
+    const highestPrice =
+        document.getElementById("v2HighestPrice");
+
+    const lastUpdated =
+        document.getElementById("v2LastUpdated");
+
+    if (currentPrice) {
+        currentPrice.textContent =
+            data.currentPrice || "—";
+    }
+
+    if (lowestPrice) {
+        lowestPrice.textContent =
+            data.lowestPrice || "—";
+    }
+
+    if (highestPrice) {
+        highestPrice.textContent =
+            data.highestPrice || "—";
+    }
+
+    if (lastUpdated) {
+        lastUpdated.textContent =
+            data.lastUpdated || "—";
+    }
+}
 /* ==========================
    PRICE HISTORY CHECKER
 ========================== */
