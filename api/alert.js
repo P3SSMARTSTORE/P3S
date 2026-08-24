@@ -1,4 +1,8 @@
-export default function handler(req, res) {
+import { neon } from "@neondatabase/serverless";
+
+const sql = neon(process.env.STORAGE_URL);
+
+export default async function handler(req, res) {
 
     // Allow requests from P3S Smart Store
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -36,16 +40,40 @@ export default function handler(req, res) {
         });
     }
 
-    return res.status(200).json({
-        success: true,
-        alert: {
-            asin: asin,
-            targetPrice: Number(targetPrice),
-            productUrl: productUrl || "",
-            createdAt: new Date().toISOString()
-        },
-        persisted: false,
-        message:
-            "P3S Price Alert API is working. Database storage is not connected yet."
-    });
+    try {
+
+        const rows = await sql`
+            INSERT INTO price_alerts
+                (asin, target_price, product_url)
+            VALUES
+                (
+                    ${asin},
+                    ${Number(targetPrice)},
+                    ${productUrl || ""}
+                )
+            RETURNING
+                id,
+                asin,
+                target_price,
+                product_url,
+                active,
+                created_at
+        `;
+
+        return res.status(200).json({
+            success: true,
+            persisted: true,
+            alert: rows[0],
+            message: "Price alert saved permanently."
+        });
+
+    } catch (error) {
+
+        console.error("Database Error:", error);
+
+        return res.status(500).json({
+            success: false,
+            message: "Unable to save price alert in database."
+        });
+    }
 }
