@@ -1387,7 +1387,95 @@ if (priceChartBox) {
     });
 
 }
+/* ==========================
+   PRICE DROP ALERT
+========================== */
 
+document.addEventListener("click", async function (event) {
+
+    if (event.target.id !== "setPriceAlertBtn") return;
+
+    const targetPriceInput =
+        document.getElementById("targetPrice");
+
+    const priceHistoryUrl =
+        document.getElementById("priceHistoryUrl");
+
+    if (!targetPriceInput || !priceHistoryUrl) return;
+
+    const targetPrice =
+        targetPriceInput.value.trim();
+
+    if (!targetPrice || Number(targetPrice) <= 0) {
+        alert("Please enter a valid target price.");
+        return;
+    }
+
+    const productUrl =
+        priceHistoryUrl.value.trim();
+
+    const alertAsinMatch =
+        productUrl.match(/(?:dp\/|gp\/product\/)([A-Z0-9]{10})/i);
+
+    if (!alertAsinMatch) {
+        alert("Amazon ASIN could not be found.");
+        return;
+    }
+
+    const alertAsin =
+        alertAsinMatch[1].toUpperCase();
+
+    try {
+
+        const response = await fetch(
+            P3S_API_BASE + "/api/alert",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    asin: alertAsin,
+                    targetPrice: Number(targetPrice),
+                    productUrl: productUrl
+                })
+            }
+        );
+
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+            throw new Error(
+                result.message || "Unable to save price alert"
+            );
+        }
+
+        localStorage.setItem(
+            "p3sPriceAlert",
+            JSON.stringify({
+                asin: alertAsin,
+                productUrl: productUrl,
+                targetPrice: Number(targetPrice)
+            })
+        );
+
+        alert(
+            "🔔 Price Alert Saved Successfully!\n\n" +
+            "Target Price: ₹" + targetPrice
+        );
+
+        showSavedPriceAlert();
+
+    } catch (error) {
+
+        console.error("P3S Alert API Error:", error);
+
+        alert(
+            "Price alert could not be sent to the backend."
+        );
+    }
+
+});
 /* ==========================
    SHOW SAVED PRICE ALERT
 ========================== */
