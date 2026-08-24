@@ -1,15 +1,25 @@
 import { neon } from "@neondatabase/serverless";
 
-const sql = neon(process.env.DATABASE_URL);
+const sql = neon(process.env.STORAGE_URL);
+
 export default async function handler(req, res) {
 
-    // Allow requests from P3S Smart Store
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    // CORS
+    res.setHeader(
+        "Access-Control-Allow-Origin",
+        "https://p3ssmartstore.github.io"
+    );
+    res.setHeader(
+        "Access-Control-Allow-Methods",
+        "POST, OPTIONS"
+    );
+    res.setHeader(
+        "Access-Control-Allow-Headers",
+        "Content-Type"
+    );
 
     if (req.method === "OPTIONS") {
-        return res.status(200).end();
+        return res.status(204).end();
     }
 
     if (req.method !== "POST") {
@@ -19,11 +29,7 @@ export default async function handler(req, res) {
         });
     }
 
-    const {
-        asin,
-        targetPrice,
-        productUrl
-    } = req.body || {};
+    const { asin, targetPrice, productUrl } = req.body || {};
 
     if (!asin) {
         return res.status(400).json({
@@ -66,20 +72,22 @@ export default async function handler(req, res) {
             message: "Price alert saved permanently."
         });
 
-  } catch (error) {
+    } catch (error) {
 
-    console.error("Database Error:", error);
+        console.error("Database Error:", error);
 
-    if (error.code === "23505") {
-        return res.status(409).json({
+        // Duplicate ASIN + target price
+        if (error.code === "23505") {
+            return res.status(409).json({
+                success: false,
+                duplicate: true,
+                message: "This price alert is already active."
+            });
+        }
+
+        return res.status(500).json({
             success: false,
-            duplicate: true,
-            message: "This price alert is already active."
+            message: "Unable to save price alert in database."
         });
     }
-
-    return res.status(500).json({
-        success: false,
-        message: "Unable to save price alert in database."
-    });
 }
