@@ -1280,11 +1280,11 @@ try {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-asin: alertAsin,
-                targetPrice: Number(targetPrice),
-                productUrl: productUrl
-            })
+           body: JSON.stringify({
+    asin: alertAsin,
+    targetPrice: Number(targetPrice),
+    productUrl: productUrl
+})
         }
     );
 
