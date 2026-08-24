@@ -1427,13 +1427,22 @@ document.addEventListener("click", async function (event) {
             }
         );
 
-        const result = await response.json();
+      const result = await response.json();
 
-        if (!response.ok || !result.success) {
-            throw new Error(
-                result.message || "Unable to save price alert"
-            );
-        }
+// Same alert already exists
+if (response.status === 409 && result.duplicate) {
+    alert(
+        "🔔 Price Alert Already Active!\n\n" +
+        "Target Price: ₹" + targetPrice
+    );
+    return;
+}
+
+if (!response.ok || !result.success) {
+    throw new Error(
+        result.message || "Unable to save price alert"
+    );
+}
 
         localStorage.setItem(
             "p3sPriceAlert",
