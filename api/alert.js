@@ -1,18 +1,17 @@
 import { neon } from "@neondatabase/serverless";
 
-const sql = neon(process.env.STORAGE_URL);
-
 export default async function handler(req, res) {
 
-    // CORS
     res.setHeader(
         "Access-Control-Allow-Origin",
         "https://p3ssmartstore.github.io"
     );
+
     res.setHeader(
         "Access-Control-Allow-Methods",
         "POST, OPTIONS"
     );
+
     res.setHeader(
         "Access-Control-Allow-Headers",
         "Content-Type"
@@ -29,7 +28,18 @@ export default async function handler(req, res) {
         });
     }
 
-    const { asin, targetPrice, productUrl } = req.body || {};
+    if (!process.env.DATABASE_URL) {
+        return res.status(500).json({
+            success: false,
+            message: "DATABASE_URL is not configured."
+        });
+    }
+
+    const {
+        asin,
+        targetPrice,
+        productUrl
+    } = req.body || {};
 
     if (!asin) {
         return res.status(400).json({
@@ -46,6 +56,9 @@ export default async function handler(req, res) {
     }
 
     try {
+
+        const sql =
+            neon(process.env.DATABASE_URL);
 
         const rows = await sql`
             INSERT INTO price_alerts
@@ -76,7 +89,6 @@ export default async function handler(req, res) {
 
         console.error("Database Error:", error);
 
-        // Duplicate ASIN + target price
         if (error.code === "23505") {
             return res.status(409).json({
                 success: false,
@@ -87,7 +99,8 @@ export default async function handler(req, res) {
 
         return res.status(500).json({
             success: false,
-            message: "Unable to save price alert in database."
+            message:
+                error.message || "Unable to save price alert in database."
         });
     }
 }
