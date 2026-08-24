@@ -1261,16 +1261,16 @@ if (checkPriceBtn && priceHistoryUrl) {
    checkPriceBtn.addEventListener("click", async function () {
 
         const productUrl = priceHistoryUrl.value.trim();
-const asinMatch =
+const alertAsinMatch =
     productUrl.match(/(?:dp\/|gp\/product\/)([A-Z0-9]{10})/i);
 
-if (!asinMatch) {
+if (!alertAsinMatch) {
     alert("Amazon ASIN could not be found.");
     return;
 }
 
-const asin = asinMatch[1].toUpperCase();
-
+const alertAsin =
+    alertAsinMatch[1].toUpperCase();
 try {
 
     const response = await fetch(
