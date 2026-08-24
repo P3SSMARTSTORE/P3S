@@ -66,13 +66,20 @@ export default async function handler(req, res) {
             message: "Price alert saved permanently."
         });
 
-    } catch (error) {
+   } catch (error) {
 
-        console.error("Database Error:", error);
+    console.error("Database Error:", error);
 
-        return res.status(500).json({
+    if (error.code === "23505") {
+        return res.status(409).json({
             success: false,
-            message: "Unable to save price alert in database."
+            duplicate: true,
+            message: "This price alert already exists."
         });
     }
+
+    return res.status(500).json({
+        success: false,
+        message: "Unable to save price alert in database."
+    });
 }
