@@ -1258,36 +1258,21 @@ const checkPriceBtn = document.getElementById("checkPriceBtn");
 const v2PriceSummary = document.getElementById("v2PriceSummary");
 if (checkPriceBtn && priceHistoryUrl) {
 
-   checkPriceBtn.addEventListener("click", async function () {
+    checkPriceBtn.addEventListener("click", async function () {
 
-        const productUrl = priceHistoryUrl.value.trim();
-const alertAsinMatch =
-    productUrl.match(/(?:dp\/|gp\/product\/)([A-Z0-9]{10})/i);
+        const productUrl =
+            priceHistoryUrl.value.trim();
 
-if (!alertAsinMatch) {
-    alert("Amazon ASIN could not be found.");
-    return;
-}
-
-const alertAsin =
-    alertAsinMatch[1].toUpperCase();
-try {
-
-    const response = await fetch(
-        P3S_API_BASE + "/api/alert",
-        {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-  
         if (productUrl === "") {
             alert("Please paste an Amazon product link.");
             return;
         }
 
         // Try to find Amazon ASIN / product code
-        const asinMatch = productUrl.match(/(?:dp\/|gp\/product\/)([A-Z0-9]{10})/i);
+        const asinMatch =
+            productUrl.match(
+                /(?:dp\/|gp\/product\/)([A-Z0-9]{10})/i
+            );
 
         if (asinMatch) {
 
