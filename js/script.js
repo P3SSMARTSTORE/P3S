@@ -1261,7 +1261,51 @@ if (checkPriceBtn && priceHistoryUrl) {
    checkPriceBtn.addEventListener("click", async function () {
 
         const productUrl = priceHistoryUrl.value.trim();
+const asinMatch =
+    productUrl.match(/(?:dp\/|gp\/product\/)([A-Z0-9]{10})/i);
 
+if (!asinMatch) {
+    alert("Amazon ASIN could not be found.");
+    return;
+}
+
+const asin = asinMatch[1].toUpperCase();
+
+try {
+
+    const response = await fetch(
+        P3S_API_BASE + "/api/alert",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                asin: asin,
+                targetPrice: Number(targetPrice),
+                productUrl: productUrl
+            })
+        }
+    );
+
+    const result = await response.json();
+
+    if (!response.ok || !result.success) {
+        throw new Error(
+            result.message || "Unable to save price alert"
+        );
+    }
+
+} catch (error) {
+
+    console.error("P3S Alert API Error:", error);
+
+    alert(
+        "Price alert could not be sent to the backend."
+    );
+
+    return;
+}
         if (productUrl === "") {
             alert("Please paste an Amazon product link.");
             return;
