@@ -1281,7 +1281,7 @@ try {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                asin: asin,
+asin: alertAsin,
                 targetPrice: Number(targetPrice),
                 productUrl: productUrl
             })
