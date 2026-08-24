@@ -1416,7 +1416,7 @@ if (priceChartBox) {
    PRICE DROP ALERT
 ========================== */
 
-document.addEventListener("click", function (event) {
+document.addEventListener("click", async function (event) {
 
     if (event.target.id !== "setPriceAlertBtn") return;
 
