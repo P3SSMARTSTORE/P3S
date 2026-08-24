@@ -66,7 +66,7 @@ export default async function handler(req, res) {
             message: "Price alert saved permanently."
         });
 
-   } catch (error) {
+  } catch (error) {
 
     console.error("Database Error:", error);
 
@@ -74,7 +74,7 @@ export default async function handler(req, res) {
         return res.status(409).json({
             success: false,
             duplicate: true,
-            message: "This price alert already exists."
+            message: "This price alert is already active."
         });
     }
 
