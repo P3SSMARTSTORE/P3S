@@ -1280,32 +1280,7 @@ try {
             headers: {
                 "Content-Type": "application/json"
             },
-           body: JSON.stringify({
-    asin: alertAsin,
-    targetPrice: Number(targetPrice),
-    productUrl: productUrl
-})
-        }
-    );
-
-    const result = await response.json();
-
-    if (!response.ok || !result.success) {
-        throw new Error(
-            result.message || "Unable to save price alert"
-        );
-    }
-
-} catch (error) {
-
-    console.error("P3S Alert API Error:", error);
-
-    alert(
-        "Price alert could not be sent to the backend."
-    );
-
-    return;
-}
+  
         if (productUrl === "") {
             alert("Please paste an Amazon product link.");
             return;
