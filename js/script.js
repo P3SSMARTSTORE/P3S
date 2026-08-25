@@ -1350,6 +1350,8 @@ if (checkPriceBtn && priceHistoryUrl) {
 
             const asin = asinMatch[1].toUpperCase();
             const livePriceResult = await fetchPriceData(asin);
+            const historyResult =
+    await fetchPriceHistoryData(asin);
 if (livePriceResult.success) {
 
     updateV2PriceSummary({
