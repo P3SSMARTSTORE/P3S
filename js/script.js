@@ -1214,26 +1214,22 @@ function updateV2PriceSummary(data) {
     }
 }
 async function fetchPriceData(asin) {
-async function fetchPriceData(asin) {
-
-    if (!P3S_API_BASE) {
-        return {
-            success: false,
-            message: "Live price data source not connected."
-        };
-    }
 
     try {
 
         const response = await fetch(
-            `${P3S_API_BASE}/api/price/${asin}`
+            P3S_API_BASE + "/api/price?asin=" +
+            encodeURIComponent(asin)
         );
 
-        if (!response.ok) {
-            throw new Error("Price data unavailable");
-        }
-
         const data = await response.json();
+
+        if (!response.ok || !data.success) {
+            return {
+                success: false,
+                message: data.message || "Price data unavailable."
+            };
+        }
 
         return {
             success: true,
@@ -1284,40 +1280,6 @@ async function fetchPriceHistoryData(asin) {
         return {
             success: false,
             message: "Unable to connect to price history API."
-        };
-    }
-}
-    if (!P3S_API_BASE) {
-        return {
-            success: false,
-            message: "Live price data source not connected."
-        };
-    }
-
-    try {
-
-        const response = await fetch(
-            `${P3S_API_BASE}/api/price/${asin}`
-        );
-
-        if (!response.ok) {
-            throw new Error("Price data unavailable");
-        }
-
-        const data = await response.json();
-
-        return {
-            success: true,
-            data: data
-        };
-
-    } catch (error) {
-
-        console.error("P3S Price API Error:", error);
-
-        return {
-            success: false,
-            message: "Unable to load live price data."
         };
     }
 }
