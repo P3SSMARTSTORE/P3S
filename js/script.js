@@ -1378,6 +1378,23 @@ if (livePriceResult.success) {
             "🔌 " + livePriceResult.message;
     }
 }
+            if (historyResult.success) {
+
+    updateV2PriceSummary({
+        currentPrice:
+            "₹" + historyResult.data.currentPrice,
+
+        lowestPrice:
+            "₹" + historyResult.data.lowestPrice,
+
+        highestPrice:
+            "₹" + historyResult.data.highestPrice,
+
+        lastUpdated:
+            new Date().toLocaleString("en-IN")
+    });
+
+}
           const priceHistoryResult =
     document.getElementById("priceHistoryResult");
 
