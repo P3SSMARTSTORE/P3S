@@ -1283,6 +1283,59 @@ async function fetchPriceHistoryData(asin) {
         };
     }
 }
+
+
+// ===== DRAW PRICE HISTORY GRAPH =====
+
+let priceHistoryChartInstance = null;
+
+function drawPriceHistoryChart(history) {
+
+    const canvas =
+        document.getElementById("priceHistoryChart");
+
+    if (!canvas || !history || history.length === 0) {
+        return;
+    }
+
+    const labels = history.map(function (item) {
+        return new Date(item.checked_at)
+            .toLocaleString("en-IN");
+    });
+
+    const prices = history.map(function (item) {
+        return Number(item.price);
+    });
+
+    if (priceHistoryChartInstance) {
+        priceHistoryChartInstance.destroy();
+    }
+
+    priceHistoryChartInstance = new Chart(canvas, {
+        type: "line",
+
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "Price ₹",
+                data: prices,
+                tension: 0.3
+            }]
+        },
+
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+
+            scales: {
+                y: {
+                    beginAtZero: false
+                }
+            }
+        }
+    });
+}
+
 /* ==========================
    PRICE HISTORY CHECKER
 ========================== */
@@ -1341,7 +1394,7 @@ if (livePriceResult.success) {
     }
 }
             if (historyResult.success) {
-
+drawPriceHistoryChart(historyResult.data.history);
     updateV2PriceSummary({
         currentPrice:
             "₹" + historyResult.data.currentPrice,
