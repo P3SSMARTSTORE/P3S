@@ -1248,10 +1248,46 @@ async function fetchPriceData(asin) {
 }
 
 
+// ===== SAVE CURRENT PRICE TO DATABASE =====
+
+async function saveCurrentPrice(asin, price) {
+
+    try {
+        const response = await fetch(
+            P3S_API_BASE + "/api/record-price",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    asin: asin,
+                    price: Number(price)
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        return {
+            success: response.ok && data.success,
+            data: data
+        };
+
+    } catch (error) {
+
+        console.error("Save Price Error:", error);
+
+        return {
+            success: false
+        };
+    }
+}
+
+
 // ===== PRICE HISTORY FROM DATABASE =====
 
 async function fetchPriceHistoryData(asin) {
-
     try {
 
         const response = await fetch(
