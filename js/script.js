@@ -1437,9 +1437,9 @@ if (priceHistoryResult) {
     </button>
 
 </div>
-            <p class="price-status">
-                📊 Price history data connection is the next step.
-            </p>
+           <p class="price-status">
+    ✅ Price history loaded successfully.
+</p>
 
         </div>
     `;
