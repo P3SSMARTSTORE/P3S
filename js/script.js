@@ -1404,12 +1404,7 @@ if (checkPriceBtn && priceHistoryUrl) {
             const historyResult =
     await fetchPriceHistoryData(asin);
 if (livePriceResult.success) {
-if (livePriceResult.data.currentPrice) {
-    await saveCurrentPrice(
-        asin,
-        livePriceResult.data.currentPrice
-    );
-}
+
     updateV2PriceSummary({
         currentPrice: livePriceResult.data.currentPrice || "—",
         lowestPrice: livePriceResult.data.lowestPrice || "—",
