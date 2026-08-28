@@ -47,7 +47,25 @@ export default async function handler(req, res) {
     try {
 
         const sql = neon(process.env.DATABASE_URL);
+const latestRows = await sql`
+    SELECT price
+    FROM price_history
+    WHERE asin = ${asin}
+    ORDER BY checked_at DESC
+    LIMIT 1
+`;
 
+if (
+    latestRows.length > 0 &&
+    Number(latestRows[0].price) === Number(price)
+) {
+    return res.status(200).json({
+        success: true,
+        saved: false,
+        duplicate: true,
+        message: "Same price already saved."
+    });
+}
         const rows = await sql`
             INSERT INTO price_history
                 (asin, price)
