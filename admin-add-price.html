@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P3S Admin — Add Price</title>
+<style>
+    body{
+        font-family:"Inter","Segoe UI",Arial,sans-serif;
+        background:#FAF9FC;
+        color:#211C4D;
+        max-width:480px;
+        margin:40px auto;
+        padding:0 20px;
+    }
+    h1{
+        font-size:22px;
+        margin-bottom:6px;
+    }
+    p.hint{
+        color:#6B6690;
+        font-size:14px;
+        margin-bottom:24px;
+    }
+    label{
+        display:block;
+        font-weight:600;
+        margin:16px 0 6px;
+        font-size:14px;
+    }
+    input{
+        width:100%;
+        padding:12px 14px;
+        border:1px solid #E7E4F0;
+        border-radius:10px;
+        font-size:15px;
+        box-sizing:border-box;
+    }
+    button{
+        width:100%;
+        margin-top:24px;
+        padding:13px;
+        border:none;
+        border-radius:10px;
+        background:#332C7A;
+        color:#fff;
+        font-weight:700;
+        font-size:15px;
+        cursor:pointer;
+    }
+    button:disabled{
+        opacity:.6;
+    }
+    #result{
+        margin-top:18px;
+        padding:12px 14px;
+        border-radius:10px;
+        font-size:14px;
+        display:none;
+    }
+    #result.success{
+        display:block;
+        background:#E4F6ED;
+        color:#167A3E;
+    }
+    #result.error{
+        display:block;
+        background:#FBE7E8;
+        color:#AE3841;
+    }
+</style>
+</head>
+<body>
+
+<h1>Add a price entry</h1>
+<p class="hint">
+    Amazon ke product page par jaakar khud price dekhein, phir yahan daal dein.
+    Yeh price aapki site ke price-tracker mein turant dikhne lagega.
+</p>
+
+<label for="asin">Amazon ASIN (10-character product code)</label>
+<input id="asin" placeholder="e.g. B0HBWPNQQF" maxlength="10">
+
+<label for="price">Current price (₹, sirf number)</label>
+<input id="price" type="number" placeholder="e.g. 12499" min="0">
+
+<button id="saveBtn">Save Price</button>
+
+<div id="result"></div>
+
+<script>
+    const P3S_API_BASE = "https://p3s-backend.vercel.app";
+
+    document.getElementById("saveBtn").addEventListener("click", async function () {
+
+        const asin = document.getElementById("asin").value.trim().toUpperCase();
+        const price = document.getElementById("price").value.trim();
+        const resultBox = document.getElementById("result");
+        const btn = document.getElementById("saveBtn");
+
+        resultBox.className = "";
+        resultBox.textContent = "";
+
+        if (!/^[A-Z0-9]{10}$/.test(asin)) {
+            resultBox.className = "error";
+            resultBox.textContent = "ASIN 10 characters ka hona chahiye (letters + numbers).";
+            return;
+        }
+
+        if (!price || Number(price) <= 0) {
+            resultBox.className = "error";
+            resultBox.textContent = "Valid price daalein.";
+            return;
+        }
+
+        btn.disabled = true;
+        btn.textContent = "Saving…";
+
+        try {
+            const response = await fetch(P3S_API_BASE + "/api/record-price", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ asin: asin, price: Number(price) })
+            });
+
+            const data = await response.json();
+
+            if (response.ok && data.success) {
+                resultBox.className = "success";
+                resultBox.textContent = data.duplicate
+                    ? "Yeh price pehle se saved hai (koi badlaav nahi)."
+                    : "✅ Price save ho gaya — ASIN " + asin + " ke liye ₹" + price;
+            } else {
+                resultBox.className = "error";
+                resultBox.textContent = data.message || "Kuch galat ho gaya.";
+            }
+
+        } catch (error) {
+            resultBox.className = "error";
+            resultBox.textContent = "Server se connect nahi ho paaya.";
+        }
+
+        btn.disabled = false;
+        btn.textContent = "Save Price";
+    });
+</script>
+
+</body>
+</html>
