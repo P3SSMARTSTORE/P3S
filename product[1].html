@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Product Details | P3S Smart Store</title>
+<meta name="description" id="pageDescription" content="Product details at P3S Smart Store.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+    .pdp-wrap{
+        max-width:1000px;
+        margin:30px auto;
+        padding:0 20px 60px;
+    }
+    .pdp-back{
+        display:inline-block;
+        margin-bottom:20px;
+        color:var(--primary);
+        font-weight:600;
+        text-decoration:none;
+        font-size:14px;
+    }
+    .pdp-grid{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:40px;
+        background:#fff;
+        border:1px solid var(--border);
+        border-radius:18px;
+        padding:32px;
+    }
+    @media (max-width:760px){
+        .pdp-grid{
+            grid-template-columns:1fr;
+            padding:20px;
+        }
+    }
+    .pdp-image img{
+        width:100%;
+        border-radius:14px;
+        object-fit:cover;
+    }
+    .pdp-title{
+        font-size:26px;
+        font-weight:700;
+        margin-bottom:10px;
+        color:var(--ink);
+    }
+    .pdp-rating{
+        font-size:15px;
+        color:var(--text-muted);
+        margin-bottom:14px;
+    }
+    .pdp-price{
+        font-size:30px;
+        font-weight:800;
+        color:var(--ink);
+        margin-bottom:4px;
+    }
+    .pdp-old-price{
+        font-size:17px;
+        color:var(--text-faint);
+        text-decoration:line-through;
+        margin-left:10px;
+        font-weight:500;
+    }
+    .pdp-discount{
+        color:var(--success);
+        font-weight:600;
+        margin-bottom:18px;
+    }
+    .pdp-specs{
+        margin:18px 0 26px;
+        padding:16px 18px;
+        background:var(--primary-tint-2);
+        border-radius:12px;
+    }
+    .pdp-specs p{
+        margin:6px 0;
+        font-size:14px;
+        color:var(--ink-soft);
+    }
+    .pdp-buy-btn{
+        display:inline-block;
+        width:100%;
+        text-align:center;
+        padding:15px;
+        border-radius:12px;
+        background:var(--gold);
+        color:var(--ink);
+        font-weight:700;
+        font-size:16px;
+        text-decoration:none;
+    }
+    .pdp-buy-btn:hover{
+        background:var(--gold-dark);
+        color:#fff;
+    }
+    .pdp-note{
+        margin-top:14px;
+        font-size:12.5px;
+        color:var(--text-faint);
+        text-align:center;
+    }
+    .pdp-missing{
+        text-align:center;
+        padding:60px 20px;
+    }
+</style>
+</head>
+<body>
+
+<header style="padding:16px 5%; border-bottom:1px solid var(--border);">
+    <a href="index.html" style="font-family:'Sora',sans-serif; font-weight:800; font-size:20px; color:var(--primary); text-decoration:none;">
+        P3S Smart Store
+    </a>
+</header>
+
+<div class="pdp-wrap">
+
+    <a href="index.html" class="pdp-back">← Back to all products</a>
+
+    <div id="pdpContent"></div>
+
+</div>
+
+<script>
+(function () {
+
+    const params = new URLSearchParams(window.location.search);
+
+    const name = params.get("name");
+
+    const container = document.getElementById("pdpContent");
+
+    if (!name) {
+
+        container.innerHTML =
+            '<div class="pdp-missing">' +
+            '<h2>Product not found</h2>' +
+            '<p>Please go back and open a product from the homepage.</p>' +
+            "</div>";
+
+        return;
+    }
+
+    const price = params.get("price") || "";
+    const oldPrice = params.get("oldPrice") || "";
+    const discount = params.get("discount") || "";
+    const rating = params.get("rating") || "";
+    const image = params.get("image") || "";
+    const link = params.get("link") || "#";
+    const specs = params.get("specs") || "";
+
+    document.getElementById("pageTitle").textContent =
+        name + " | P3S Smart Store";
+
+    document.getElementById("pageDescription").setAttribute(
+        "content",
+        name + " — price, rating and details at P3S Smart Store."
+    );
+
+    const specsHtml = specs
+        ? specs.split("|").map(function (line) {
+            return "<p>" + line + "</p>";
+        }).join("")
+        : "";
+
+    container.innerHTML =
+        '<div class="pdp-grid">' +
+
+            '<div class="pdp-image">' +
+                '<img src="' + image + '" alt="' + name + '">' +
+            "</div>" +
+
+            '<div class="pdp-info">' +
+
+                '<h1 class="pdp-title">' + name + "</h1>" +
+
+                (rating
+                    ? '<div class="pdp-rating">' + rating + "</div>"
+                    : "") +
+
+                '<div>' +
+                    '<span class="pdp-price">₹' + price + "</span>" +
+                    (oldPrice
+                        ? '<span class="pdp-old-price">₹' + oldPrice + "</span>"
+                        : "") +
+                "</div>" +
+
+                (discount
+                    ? '<p class="pdp-discount">' + discount + "</p>"
+                    : "") +
+
+                (specsHtml
+                    ? '<div class="pdp-specs">' + specsHtml + "</div>"
+                    : "") +
+
+                '<a href="' + link + '" target="_blank" rel="nofollow sponsored noopener" class="pdp-buy-btn">' +
+                    "Buy on Amazon" +
+                "</a>" +
+
+                '<p class="pdp-note">As an Amazon Associate, I earn from qualifying purchases.</p>' +
+
+            "</div>" +
+
+        "</div>";
+
+})();
+</script>
+
+</body>
+</html>
