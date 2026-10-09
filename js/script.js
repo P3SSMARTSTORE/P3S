@@ -1801,55 +1801,31 @@ document.addEventListener("DOMContentLoaded", function () {
             if (badge && /off/i.test(badge)) priceLine += " – " + badge;
         }
 
+        // Amazon link goes on the first line so WhatsApp builds a link preview
+        // (product photo card). Tapping that preview opens Amazon directly.
         const lines = [
-            "🔥 P3S Smart Store Deal 🔥",
+            link,
             "",
+            "🔥 P3S Smart Store Deal 🔥",
             "🛍️ " + name
         ];
         if (priceLine) lines.push(priceLine);
         lines.push(
             "",
-            "🛒 खरीदें 👉 " + link,
+            "🛒 ऊपर फ़ोटो/लिंक पर क्लिक करके खरीदें",
             "सभी डील्स: " + SITE_URL,
             "",
             "(Affiliate लिंक – खरीदने पर हमें थोड़ा कमीशन मिलता है)"
         );
 
         const message = lines.join("\n");
-        const waUrl = "https://wa.me/?text=" + encodeURIComponent(message);
-        const imgEl = card.querySelector("img");
-        const imgSrc = card.dataset.image || (imgEl ? imgEl.getAttribute("src") : "");
 
         const shareBtn = document.createElement("a");
         shareBtn.className = "share-wa-btn";
-        shareBtn.href = waUrl;
+        shareBtn.href = "https://wa.me/?text=" + encodeURIComponent(message);
         shareBtn.target = "_blank";
         shareBtn.rel = "noopener";
         shareBtn.textContent = "📲 Share on WhatsApp";
-
-        // On phones: share photo + message together through the share sheet
-        // (pick WhatsApp there). Elsewhere: fall back to a text-only WhatsApp link.
-        shareBtn.addEventListener("click", async function (e) {
-            const isPhone = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-            if (!isPhone || !navigator.share || !navigator.canShare || !imgSrc) return;
-            e.preventDefault();
-            try {
-                const res = await fetch(imgSrc);
-                if (!res.ok) throw new Error("image not found");
-                const blob = await res.blob();
-                const ext = (blob.type.split("/")[1] || "jpg").replace("jpeg", "jpg");
-                const file = new File([blob], "p3s-deal." + ext, { type: blob.type || "image/jpeg" });
-
-                if (navigator.canShare({ files: [file] })) {
-                    await navigator.share({ files: [file], text: message });
-                } else {
-                    window.open(waUrl, "_blank", "noopener");
-                }
-            } catch (err) {
-                if (err && err.name === "AbortError") return; // user closed the share sheet
-                window.open(waUrl, "_blank", "noopener");
-            }
-        });
 
         buyBtn.insertAdjacentElement("afterend", shareBtn);
     });
