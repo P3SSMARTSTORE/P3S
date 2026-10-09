@@ -1869,3 +1869,25 @@ html{
         grid-template-columns: 1fr;
     }
 }
+
+/* WhatsApp share button on product cards */
+.share-wa-btn{
+    display:block;
+    width:100%;
+    margin-top:8px;
+    padding:10px 16px;
+    border:1.5px solid #25D366;
+    border-radius:10px;
+    background:transparent;
+    color:#128C7E;
+    text-align:center;
+    font-weight:600;
+    font-size:.92rem;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.share-wa-btn:hover{
+    background:#25D366;
+    color:#fff;
+}
