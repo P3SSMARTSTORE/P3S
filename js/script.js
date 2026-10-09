@@ -1815,7 +1815,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "🛒 ऊपर फ़ोटो/लिंक पर क्लिक करके खरीदें",
             "सभी डील्स: " + SITE_URL,
             "",
-            "(Affiliate लिंक – खरीदने पर हमें थोड़ा कमीशन मिलता है)"
+            "#ad (Affiliate link)"
         );
 
         const message = lines.join("\n");
