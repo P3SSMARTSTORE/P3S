@@ -119,19 +119,24 @@ card.dataset.productUrl = affiliateUrl;
             info.appendChild(specs);
         }
 
-        var buy = document.createElement("a");
-        buy.href = affiliateUrl;
-        buy.target = "_blank";
-        buy.rel = "nofollow sponsored noopener";
-        buy.className = "buy-btn";
-        buy.textContent = "Buy on " + (safeText(product.platform, "Store"));
-        info.appendChild(buy);
-// ADD TO CART BUTTON
+       var actions = document.createElement("div");
+actions.className = "product-actions";
+
+var buy = document.createElement("a");
+buy.href = affiliateUrl;
+buy.target = "_blank";
+buy.rel = "nofollow sponsored noopener";
+buy.className = "buy-btn";
+buy.textContent = "Buy on " + (safeText(product.platform, "Store"));
+actions.appendChild(buy);
+
 var addCart = document.createElement("button");
 addCart.type = "button";
 addCart.className = "add-cart-btn";
 addCart.textContent = "🛒 Add to Cart";
-info.appendChild(addCart);
+actions.appendChild(addCart);
+
+info.appendChild(actions);
        var actions = document.createElement("div");
 actions.className = "product-actions";
         card.appendChild(info);
