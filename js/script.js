@@ -1770,11 +1770,9 @@ document.addEventListener("click", function (event) {
 
 /* ==========================
    WHATSAPP SHARE BUTTON
-   (adds a "Share on WhatsApp" button under each product's
-    Buy button; opens WhatsApp with name, price and link filled in)
 ========================== */
 
-document.addEventListener("DOMContentLoaded", function () {
+function addWhatsAppButtons() {
 
     const SITE_URL = "https://p3ssmartstore.github.io/P3S/";
 
@@ -1784,49 +1782,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const buyBtn = card.querySelector(".buy-btn");
         const titleEl = card.querySelector(".product-title");
+
         if (!buyBtn || !titleEl) return;
 
         const name = titleEl.textContent.replace(/\s+/g, " ").trim();
-        const link = card.dataset.link || buyBtn.getAttribute("href") || SITE_URL;
+        const link = card.dataset.link || buyBtn.href || SITE_URL;
 
         const priceEl = card.querySelector(".price");
-        const oldPriceEl = card.querySelector(".old-price");
-        const badgeEl = card.querySelector(".badge");
+        const price = priceEl ? priceEl.textContent.trim() : "";
 
-        let price = "";
-        if (priceEl && priceEl.childNodes[0]) {
-            price = priceEl.childNodes[0].textContent.trim();
-        }
-        const oldPrice = oldPriceEl ? oldPriceEl.textContent.trim() : "";
-        const badge = badgeEl ? badgeEl.textContent.trim() : "";
-
-        let priceLine = "";
-        if (price) {
-            priceLine = "💰 " + price;
-            if (oldPrice) priceLine += " (MRP " + oldPrice + ")";
-            if (badge && /off/i.test(badge)) priceLine += " – " + badge;
-        }
-
-        // Amazon link goes on the first line so WhatsApp builds a link preview
-        // (product photo card). Tapping that preview opens Amazon directly.
-        const lines = [
+        const message = [
             link,
             "",
             "🔥 P3S Smart Store Deal 🔥",
-            "🛍️ " + name
-        ];
-        if (priceLine) lines.push(priceLine);
-        lines.push(
+            "🛍️ " + name,
+            price ? "💰 " + price : "",
             "",
-            "🛒 ऊपर फ़ोटो/लिंक पर क्लिक करके खरीदें",
             "सभी डील्स: " + SITE_URL,
             "",
             "#ad (Affiliate link)"
-        );
-
-        const message = lines.join("\n");
+        ].filter(Boolean).join("\n");
 
         const shareBtn = document.createElement("a");
+
         shareBtn.className = "share-wa-btn";
         shareBtn.href = "https://wa.me/?text=" + encodeURIComponent(message);
         shareBtn.target = "_blank";
@@ -1835,5 +1813,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
         buyBtn.insertAdjacentElement("afterend", shareBtn);
     });
-
-});
+}
