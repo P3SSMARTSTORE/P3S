@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     if (typeof window.P3SLoadProducts === "function") {
         await window.P3SLoadProducts();
     }
-
+addWhatsAppButtons();
 
     /* ==========================
        PRODUCT DETAIL PAGE LINKS
