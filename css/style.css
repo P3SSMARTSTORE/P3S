@@ -1891,3 +1891,61 @@ html{
     background:#25D366;
     color:#fff;
 }
+
+/* ===== P3S PRODUCT BUTTONS FINAL FIX ===== */
+
+.product-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: auto;
+}
+
+.product-actions .buy-btn,
+.product-actions .add-cart-btn,
+.product-actions .share-wa-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 46px;
+    margin: 0;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.product-actions .buy-btn {
+    background: var(--gold);
+    color: #fff;
+}
+
+.product-actions .add-cart-btn {
+    background: var(--primary-dark);
+    color: #fff;
+}
+
+.product-actions .share-wa-btn {
+    background: #fff;
+    color: #128C7E;
+    border: 1.5px solid #25D366;
+}
+
+.product-actions .share-wa-btn:hover {
+    background: #25D366;
+    color: #fff;
+}
+
+.product-actions .buy-btn:hover,
+.product-actions .add-cart-btn:hover {
+    transform: translateY(-2px);
+}
+
+.product-card img,
+.product-title {
+    cursor: pointer;
+}
