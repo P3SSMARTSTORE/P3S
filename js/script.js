@@ -1,4 +1,10 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
+
+    // Load approved products from products.json before binding search/category/detail events.
+    if (typeof window.P3SLoadProducts === "function") {
+        await window.P3SLoadProducts();
+    }
+
 
     /* ==========================
        PRODUCT DETAIL PAGE LINKS
