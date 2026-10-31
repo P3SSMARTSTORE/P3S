@@ -35,6 +35,9 @@
 
         var card = document.createElement("div");
         card.className = "product-card";
+       card.style.cursor = "pointer";
+card.dataset.productName = name;
+card.dataset.productUrl = affiliateUrl;
         card.dataset.productId = safeText(product.id, name.toLowerCase().replace(/[^a-z0-9]+/g, "-"));
         card.dataset.name = name;
         card.dataset.category = safeText(product.category, "deals").toLowerCase();
