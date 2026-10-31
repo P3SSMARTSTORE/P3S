@@ -1949,3 +1949,34 @@ html{
 .product-title {
     cursor: pointer;
 }
+/* P3S: All product buttons same position */
+.product-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.product-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: auto;
+}
+
+.product-actions .buy-btn,
+.product-actions .add-cart-btn,
+.product-actions .share-wa-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 46px;
+    margin: 0;
+    box-sizing: border-box;
+}
