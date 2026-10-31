@@ -123,7 +123,12 @@
         buy.className = "buy-btn";
         buy.textContent = "Buy on " + (safeText(product.platform, "Store"));
         info.appendChild(buy);
-
+// ADD TO CART BUTTON
+var addCart = document.createElement("button");
+addCart.type = "button";
+addCart.className = "add-cart-btn";
+addCart.textContent = "🛒 Add to Cart";
+info.appendChild(addCart);
         card.appendChild(info);
         return card;
     }
