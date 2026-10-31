@@ -1,5 +1,28 @@
 {
   "version": 1,
   "updatedAt": "2026-10-31",
-  "products": []
+  "products": [
+    {
+      "id": "amazon-starton-spiderman-oversized-tshirt-b0hjbjrbk",
+      "name": "Starton Unisex Superhero Graphic Printed Oversized T-Shirt",
+      "category": "fashion",
+      "keywords": "men t-shirt oversized spider-man superhero graphic black cotton unisex starton apparel",
+      "price": 474,
+      "oldPrice": 999,
+      "image": "https://www.freeauthority.co/cdn/shop/files/SMSS26YMTSRT005618_1_4af4bb5a-678f-43ca-baff-74ea014365a9.jpg?v=1774524843&width=1445",
+      "affiliateUrl": "https://link.amazon/B0hJbJRbk",
+      "platform": "Amazon",
+      "badge": "53% OFF",
+      "rating": "4.3",
+      "discount": "Save ₹525",
+      "specs": [
+        "100% Cotton",
+        "Oversized Fit",
+        "Half Sleeve",
+        "Crew Neck",
+        "Front and Back Print"
+      ],
+      "active": true
+    }
+  ]
 }
