@@ -3,10 +3,10 @@
   "updatedAt": "2026-10-31",
   "products": [
     {
-      "id": "amazon-starton-spiderman-oversized-tshirt-b0hjbjrbk",
-      "name": "Starton Unisex Superhero Graphic Printed Oversized T-Shirt",
+      "id": "amazon-starton-superhero-oversized-tshirt",
+      "name": "Starton Apparel Unisex Superhero Graphic Printed Oversized T-Shirt",
       "category": "fashion",
-      "keywords": "men t-shirt oversized spider-man superhero graphic black cotton unisex starton apparel",
+      "keywords": "men women unisex t-shirt oversized spider-man superhero graphic black cotton starton",
       "price": 474,
       "oldPrice": 999,
       "image": "https://www.freeauthority.co/cdn/shop/files/SMSS26YMTSRT005618_1_4af4bb5a-678f-43ca-baff-74ea014365a9.jpg?v=1774524843&width=1445",
@@ -19,8 +19,196 @@
         "100% Cotton",
         "Oversized Fit",
         "Half Sleeve",
-        "Crew Neck",
-        "Front and Back Print"
+        "Crew Neck"
+      ],
+      "active": true
+    },
+    {
+      "id": "amazon-klosia-anarkali-kurta-set",
+      "name": "KLOSIA Women's Rayon Printed Anarkali Kurta and Pant with Dupatta Set",
+      "category": "fashion",
+      "keywords": "women kurta pant dupatta anarkali rayon ethnic wear klosia",
+      "price": 639,
+      "oldPrice": 2999,
+      "image": "",
+      "affiliateUrl": "https://link.amazon/B0fyi7CVJ",
+      "platform": "Amazon",
+      "badge": "79% OFF",
+      "rating": "4.1",
+      "discount": "Save ₹2,360",
+      "specs": [
+        "Rayon / Viscose",
+        "Anarkali Style",
+        "3/4 Sleeve",
+        "Sizes S–5XL"
+      ],
+      "active": true
+    },
+    {
+      "id": "amazon-red-tape-mens-casual-shoes",
+      "name": "Red Tape Black Casual Shoes for Men",
+      "category": "fashion",
+      "keywords": "men shoes red tape black casual lace up mesh pu footwear",
+      "price": 965,
+      "oldPrice": 6899,
+      "image": "",
+      "affiliateUrl": "https://link.amazon/B06DFbhSQ",
+      "platform": "Amazon",
+      "badge": "86% OFF",
+      "rating": "4.4",
+      "discount": "Save ₹5,934",
+      "specs": [
+        "Mesh + PU Upper",
+        "Lace-up",
+        "Flat Heel",
+        "Sizes UK 6–10"
+      ],
+      "active": true
+    },
+    {
+      "id": "amazon-helium-walnut-kernels-1kg",
+      "name": "HELIUM Walnut Kernels 1Kg",
+      "category": "grocery",
+      "keywords": "walnut kernels dry fruits grocery helium 1kg",
+      "price": 999,
+      "oldPrice": 2799,
+      "image": "",
+      "affiliateUrl": "https://link.amazon/B0hNzUCZ8",
+      "platform": "Amazon",
+      "badge": "64% OFF",
+      "rating": "2.3",
+      "discount": "Save ₹1,800",
+      "specs": [
+        "Raw Walnut Kernels",
+        "1 Kg Pack",
+        "600+ bought last month"
+      ],
+      "active": true
+    },
+    {
+      "id": "amazon-veirdo-mens-oversized-tshirt",
+      "name": "Veirdo 100% Pure Cotton Oversized Loose Baggy Fit T-Shirt for Men",
+      "category": "fashion",
+      "keywords": "men veirdo oversized baggy paisley printed white cotton t-shirt plus size",
+      "price": 474,
+      "oldPrice": 1199,
+      "image": "",
+      "affiliateUrl": "https://link.amazon/B00WrcLex",
+      "platform": "Amazon",
+      "badge": "60% OFF",
+      "rating": "4.2",
+      "discount": "Save ₹725",
+      "specs": [
+        "100% Cotton",
+        "Oversized Fit",
+        "Half Sleeve",
+        "White; sizes 2XL–5XL"
+      ],
+      "active": true
+    },
+    {
+      "id": "amazon-bewakoof-marvel-spiderman-full-sleeve-tshirt",
+      "name": "Bewakoof X Marvel Spider-Man Men's Oversized Full Sleeve T-Shirt",
+      "category": "fashion",
+      "keywords": "bewakoof marvel spiderman men black full sleeve oversized cotton t-shirt",
+      "price": 699,
+      "oldPrice": 1499,
+      "image": "",
+      "affiliateUrl": "https://link.amazon/B0eEb9dUn",
+      "platform": "Amazon",
+      "badge": "53% OFF",
+      "rating": "4.4",
+      "discount": "Save ₹800",
+      "specs": [
+        "100% Cotton",
+        "Oversized Fit",
+        "Full Sleeve",
+        "Jet Black; sizes S–3XL"
+      ],
+      "active": true
+    },
+    {
+      "id": "amazon-asian-powerkick-01-sneakers",
+      "name": "ASIAN Powerkick-01 Men's Sports Sneakers",
+      "category": "fashion",
+      "keywords": "asian men sports sneakers running walking memory foam powerkick",
+      "price": 999,
+      "oldPrice": 2499,
+      "image": "",
+      "affiliateUrl": "https://link.amazon/B02wNO2sc",
+      "platform": "Amazon",
+      "badge": "60% OFF",
+      "rating": "3.9",
+      "discount": "Save ₹1,500",
+      "specs": [
+        "Memory Foam Comfort",
+        "Durable Grip Sole",
+        "Selected Colour: White TBlue",
+        "Selected Size: UK 7"
+      ],
+      "active": true
+    },
+    {
+      "id": "amazon-nermosa-women-embroidered-kurta-set",
+      "name": "Nermosa Women Embroidery Solid A-Line Kurta and Pant Set with Dupatta",
+      "category": "fashion",
+      "keywords": "women nermosa embroidered a line kurta pant dupatta peach ethnic wear",
+      "price": 659,
+      "oldPrice": 2999,
+      "image": "",
+      "affiliateUrl": "https://link.amazon/B08iJorIQ",
+      "platform": "Amazon",
+      "badge": "78% OFF",
+      "rating": "4.2",
+      "discount": "Save ₹2,340",
+      "specs": [
+        "Embroidered A-Line Kurta",
+        "Pant with Dupatta",
+        "Selected Colour: Morepeach",
+        "Selected Size: L; sizes S–5XL"
+      ],
+      "active": true
+    },
+    {
+      "id": "amazon-samsung-183l-refrigerator",
+      "name": "Samsung 183 L, 4 Star Digital Inverter Direct-Cool Single Door Refrigerator",
+      "category": "electronics",
+      "keywords": "samsung refrigerator fridge 183 litre 4 star digital inverter paradise bloom blue",
+      "price": 16790,
+      "oldPrice": 21999,
+      "image": "",
+      "affiliateUrl": "https://link.amazon/B05AwCa4h",
+      "platform": "Amazon",
+      "badge": "24% OFF",
+      "rating": "4.3",
+      "discount": "Save ₹5,209",
+      "specs": [
+        "183 Litres",
+        "4 Star Energy Rating",
+        "Paradise Bloom Blue",
+        "Model RR20H28249U/NL"
+      ],
+      "active": true
+    },
+    {
+      "id": "amazon-lg-7kg-front-load-washing-machine",
+      "name": "LG 7 Kg 5 Star DD Technology Steam Wash Fully-Automatic Front Load Washing Machine",
+      "category": "electronics",
+      "keywords": "lg washing machine 7kg front load steam wash 5 star middle black",
+      "price": 29990,
+      "oldPrice": 44490,
+      "image": "",
+      "affiliateUrl": "https://link.amazon/B0dN0208L",
+      "platform": "Amazon",
+      "badge": "33% OFF",
+      "rating": "4.3",
+      "discount": "Save ₹14,500",
+      "specs": [
+        "7 Kg Capacity",
+        "5 Star Energy Rating",
+        "Steam Wash; 6 Motion DD",
+        "1200 RPM; Child Lock",
+        "2 Years Comprehensive + 10 Years Motor Warranty (as listed)"
       ],
       "active": true
     }
