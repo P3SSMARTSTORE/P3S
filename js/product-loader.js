@@ -31,7 +31,7 @@
         var image = safeImage(product.image);
         var affiliateUrl = safeAffiliateUrl(product.affiliateUrl);
         var price = Number(product.price);
-        if (!name || !image || !affiliateUrl || !Number.isFinite(price) || price < 0) return null;
+        if (!name || !affiliateUrl || !Number.isFinite(price) || price < 0) return null;
 
         var card = document.createElement("div");
         card.className = "product-card";
@@ -56,12 +56,21 @@
         wishlist.textContent = "❤️";
         card.appendChild(wishlist);
 
-        var img = document.createElement("img");
-        img.src = image;
-        img.alt = name;
-        img.loading = "lazy";
-        img.onerror = function () { img.style.display = "none"; };
-        card.appendChild(img);
+        if (image) {
+            var img = document.createElement("img");
+            img.src = image;
+            img.alt = name;
+            img.loading = "lazy";
+            img.onerror = function () { img.style.display = "none"; };
+            card.appendChild(img);
+        } else {
+            var placeholder = document.createElement("div");
+            placeholder.className = "product-image-placeholder";
+            placeholder.textContent = "P3S Smart Store";
+            placeholder.setAttribute("aria-label", "Product image not supplied");
+            placeholder.style.cssText = "min-height:180px;display:flex;align-items:center;justify-content:center;background:#eef4ff;color:#2456a6;font-weight:600;";
+            card.appendChild(placeholder);
+        }
 
         var info = document.createElement("div");
         info.className = "product-info";
@@ -107,13 +116,6 @@
             info.appendChild(specs);
         }
 
-        // Match the cart controls used by the existing static product cards.
-        var addCart = document.createElement("button");
-        addCart.type = "button";
-        addCart.className = "add-cart-btn";
-        addCart.textContent = "🛒 Add to Cart";
-        info.appendChild(addCart);
-
         var buy = document.createElement("a");
         buy.href = affiliateUrl;
         buy.target = "_blank";
@@ -121,28 +123,6 @@
         buy.className = "buy-btn";
         buy.textContent = "Buy on " + (safeText(product.platform, "Store"));
         info.appendChild(buy);
-
-        // Build the WhatsApp share button here because this card is loaded
-        // asynchronously after the page's initial DOMContentLoaded handlers.
-        var shareLines = [
-            affiliateUrl,
-            "",
-            "🔥 P3S Smart Store Deal 🔥",
-            "🛍️ " + name,
-            "💰 ₹" + price.toLocaleString("en-IN"),
-            "",
-            "🛒 ऊपर लिंक पर क्लिक करके खरीदें",
-            "सभी डील्स: https://p3ssmartstore.github.io/P3S/",
-            "",
-            "#ad (Affiliate link)"
-        ];
-        var share = document.createElement("a");
-        share.className = "share-wa-btn";
-        share.href = "https://wa.me/?text=" + encodeURIComponent(shareLines.join("\n"));
-        share.target = "_blank";
-        share.rel = "noopener";
-        share.textContent = "📲 Share on WhatsApp";
-        info.appendChild(share);
 
         card.appendChild(info);
         return card;
