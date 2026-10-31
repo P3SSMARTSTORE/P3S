@@ -132,6 +132,8 @@ addCart.type = "button";
 addCart.className = "add-cart-btn";
 addCart.textContent = "🛒 Add to Cart";
 info.appendChild(addCart);
+       var actions = document.createElement("div");
+actions.className = "product-actions";
         card.appendChild(info);
         return card;
     }
