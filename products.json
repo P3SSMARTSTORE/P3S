@@ -86,6 +86,27 @@
       "active": true
     },
     {
+  "id": "amazon-avogro-cashew-1kg",
+  "name": "Avogro Premium Whole Cashew Nuts 1KG",
+  "category": "grocery",
+  "keywords": "avogro cashew kaju whole cashew nuts 1kg",
+  "price": 849,
+  "oldPrice": 1199,
+  "image": "images/products/avogro-cashew-1kg.jpg",
+  "affiliateUrl": "YOUR_WORKING_AMAZON_AFFILIATE_LINK",
+  "platform": "Amazon",
+  "badge": "Save ₹350",
+  "rating": "2.7",
+  "discount": "Save ₹350",
+  "specs": [
+    "Whole Cashews",
+    "Natural & Unsalted",
+    "Protein Rich",
+    "1KG Jar Pack"
+  ],
+  "active": true
+},
+    {
       "id": "amazon-veirdo-mens-oversized-tshirt",
       "name": "Veirdo 100% Pure Cotton Oversized Loose Baggy Fit T-Shirt for Men",
       "category": "fashion",
