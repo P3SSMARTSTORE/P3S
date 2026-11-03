@@ -93,7 +93,7 @@
   "price": 829,
   "oldPrice": 1199,
   "image": "https://m.media-amazon.com/images/I/81z0xrah-ZL._SL1500_.jpg",
-  "affiliateUrl": "PASTE_CORRECT_AFFILIATE_LINK_HERE",
+  "affiliateUrl": "https://www.amazon.in/dp/B0HNLMJ3RM?tag=technotalk07-21",
   "platform": "Amazon",
   "badge": "31% OFF",
   "rating": "5.0",
@@ -105,7 +105,7 @@
     "Non-Returnable"
   ],
   "active": true
-},
+}
     {
       "id": "amazon-veirdo-mens-oversized-tshirt",
       "name": "Veirdo 100% Pure Cotton Oversized Loose Baggy Fit T-Shirt for Men",
